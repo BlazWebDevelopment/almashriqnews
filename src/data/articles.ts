@@ -39,6 +39,8 @@ import kairoLoneWolfHeaderImage from '@/context/kYdeLd458u.png'
 import ascendingCircleHeaderImage from '@/context/xjDvomtTES.jpg'
 import janeKennedyMrnaVaccineHeaderImage from '@/context/w8pE2f6xEW.png'
 import janeKennedyPatientImage from '@/context/484074327_1045246380963804_1788522156620182880_n.png'
+import rexCursorHeaderImage from '@/context/B93k1lcWLZ.png'
+import rexDogImage from '@/context/N9BBhwsEyN.png'
 
 
 const hero1Image =
@@ -124,6 +126,48 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+
+  {
+    id: '98437356',
+    title: 'Rex: Cursor’s Upcoming AI Dog Set to Evolutionize the AI World',
+    summary:
+      'Rex, an AI dog reportedly built with Cursor, is expected to arrive in October 2026 as a physical companion that learns, adapts and develops its own personality over time.',
+    body: [
+      'A new kind of AI companion is on the way.',
+      'Rex, an upcoming AI dog reportedly created with Cursor, is expected to arrive in October 2026. Designed to bring artificial intelligence into a more interactive and personal form, Rex is being presented as a futuristic AI companion that could help change the way people think about AI.',
+      {
+        type: 'image',
+        src: rexDogImage,
+        caption: 'Rex, Cursor’s upcoming AI dog companion, is designed to interact with its environment and evolve over time.',
+        alt: 'Side profile of Rex, a white robotic dog with black accents and the name REX printed on its body',
+      },
+      'https://www.cursor.dog/',
+      'Unlike traditional software that lives only on a screen, Rex is envisioned as an AI dog that can interact with its environment, learn from experiences, and develop its own personality over time.',
+      { type: 'heading', text: 'Meet Rex' },
+      'Rex is more than just an ordinary robotic dog. The idea behind him is to create an AI companion that feels alive, responsive, and capable of evolving alongside its owner.',
+      'With artificial intelligence at the center of his design, Rex could potentially communicate, recognize situations, respond to people, and learn new behaviors.',
+      'His name is simple: Rex.',
+      'But the technology behind him could be anything but simple.',
+      { type: 'heading', text: 'Coming in October 2026' },
+      'Rex is expected to make his debut in October 2026, making the upcoming release one to watch for people interested in artificial intelligence, robotics, and next-generation technology.',
+      'The launch could introduce a new category of AI products where intelligent systems aren\'t simply applications or chatbots, but physical companions that interact with people in the real world.',
+      { type: 'heading', text: 'Evolutionizing the AI World' },
+      'Rex is being described as part of a bigger vision: to evolutionize the AI world.',
+      'The concept represents a future where AI becomes more personal, interactive, and present in everyday life. Instead of asking an AI to perform a task through a computer or phone, people could interact with an intelligent physical companion.',
+      'If Rex delivers on that vision, he could become an important step toward that future.',
+      { type: 'heading', text: 'A New Era for AI Companions' },
+      'The arrival of Rex could mark the beginning of a new generation of AI companions.',
+      'From learning and adapting to interacting with people, the possibilities are wide open. Rex could show how artificial intelligence can move beyond screens and become something people can physically experience.',
+      'Rex is coming. October 2026 could be the beginning of something new.',
+      'Note: Details about Rex\'s exact features, pricing, availability, and official release announcement should be confirmed by Cursor or the project\'s official channels before publication.',
+    ],
+    category: 'Tech',
+    time: '14:30',
+    section: 'tech',
+    image: rexCursorHeaderImage,
+    byline: 'Alma Shriq News Tech Desk',
+    date: '2026-08-20',
+  },
 
   {
     id: '98437349',
