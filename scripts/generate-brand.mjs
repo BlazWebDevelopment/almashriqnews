@@ -5,7 +5,7 @@
 // Writes: public/logo.svg, public/favicon.svg, public/logo.png,
 //         public/apple-icon.png, public/icon-192.png, public/icon-512.png,
 //         public/favicon.ico, public/og-image.png, public/wordmark.svg,
-//         public/site.webmanifest
+//         public/site.webmanifest, src/lib/brand-mark.ts
 //
 // Glyphs are converted to vector paths rather than left as <text>, so the
 // wordmark and monogram render identically in browsers, rasterisers and
@@ -35,7 +35,6 @@ const HAIRLINE = '#dfe3e9'
 const MUTED = '#6b7480'
 
 const NAME = 'ALMA SHRIQ NEWS'
-const INITIALS = 'ASN'
 const TAGLINE = 'INDEPENDENT REPORTING \u00b7 UPDATED HOURLY'
 const SECTIONS = 'WORLD \u00b7 BUSINESS \u00b7 TECHNOLOGY \u00b7 SPORT \u00b7 CULTURE'
 
@@ -126,29 +125,75 @@ function glyphPath(font, text, { height, width, cx, cy, letterSpacing = 0 }) {
 const font = await loadFont()
 
 /* ------------------------------------------------------------------
-   1. Monogram tiles — "ASN" on a red rounded square.
-   Small sizes set the initials wider so a 16px favicon still reads
-   as a mark rather than a smudge.
+   1. The mark — an "A" monogram on an ink tile, standing on a red
+   baseline rule. The rule is the house press rule, so the tile reads
+   as a masthead rather than an app badge.
+
+   Geometry is expressed as fractions of the tile so every size is the
+   same drawing. Below ~64px the letter grows and the rule thickens,
+   because a hairline rule vanishes once it lands under a pixel.
    ------------------------------------------------------------------ */
 
-function monogramSvg({ size, widthRatio, radiusRatio = 0.15 }) {
-  const glyph = glyphPath(font, INITIALS, {
-    width: size * widthRatio,
-    height: size * 0.44,
+const MARK = {
+  large: { letter: 0.48, cy: 0.435, ruleX: 0.2, ruleY: 0.735, ruleH: 0.075 },
+  small: { letter: 0.54, cy: 0.425, ruleX: 0.17, ruleY: 0.74, ruleH: 0.1 },
+}
+const RADIUS_RATIO = 0.13
+
+/** Tile, monogram and rule as bare markup, ready to inline at any size. */
+function markBody({ size, small = false, field, letter, rule, radiusRatio = RADIUS_RATIO }) {
+  const m = small ? MARK.small : MARK.large
+  const n = (v) => Number(v.toFixed(2))
+  const glyph = glyphPath(font, 'A', {
+    height: size * m.letter,
     cx: size / 2,
-    cy: size / 2,
-    letterSpacing: -0.02,
+    cy: size * m.cy,
   })
-  const r = Number((size * radiusRatio).toFixed(2))
+  const r = n(size * radiusRatio)
+  return [
+    `<rect width="${size}" height="${size}" rx="${r}" ry="${r}" fill="${field}"/>`,
+    `<path d="${glyph.d}" fill="${letter}"/>`,
+    `<rect x="${n(size * m.ruleX)}" y="${n(size * m.ruleY)}" width="${n(size * (1 - 2 * m.ruleX))}" height="${n(size * m.ruleH)}" fill="${rule}"/>`,
+  ].join('\n  ')
+}
+
+function markSvg({
+  size,
+  small = false,
+  field = INK,
+  letter = PAPER,
+  rule = RED,
+  radiusRatio = RADIUS_RATIO,
+  style = '',
+}) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${NAME}">
-  <rect width="${size}" height="${size}" rx="${r}" ry="${r}" fill="${RED}"/>
-  <path d="${glyph.d}" fill="${PAPER}"/>
+  ${style}${markBody({ size, small, field, letter, rule, radiusRatio })}
 </svg>
 `
 }
 
-const logoSvg = monogramSvg({ size: 512, widthRatio: 0.66 })
-const faviconSvg = monogramSvg({ size: 64, widthRatio: 0.82, radiusRatio: 0.13 })
+const logoSvg = markSvg({ size: 512 })
+
+/*
+ * The SVG favicon flips to a paper tile in dark chrome: an ink tile on a dark
+ * tab strip loses its edges. Rasterisers ignore the media query and keep the
+ * light drawing, which is exactly what the .ico wants.
+ */
+const faviconSvg = markSvg({
+  size: 64,
+  small: true,
+  field: 'currentColor',
+  letter: PAPER,
+  rule: RED,
+  style: `<style>
+    svg { color: ${INK} }
+    @media (prefers-color-scheme: dark) { svg { color: ${PAPER} } path { fill: ${INK} } }
+  </style>
+  `,
+})
+
+/* Same drawing with flat fills, for anything that rasterises. */
+const faviconRasterSvg = markSvg({ size: 64, small: true })
 
 await writeFile(resolve(publicDir, 'logo.svg'), logoSvg)
 console.log('Wrote public/logo.svg')
@@ -163,7 +208,9 @@ const logoPng = await sharp(Buffer.from(logoSvg)).resize(512, 512).png().toBuffe
 await writeFile(resolve(publicDir, 'logo.png'), logoPng)
 console.log('Wrote public/logo.png')
 
-const applePng = await sharp(Buffer.from(logoSvg)).resize(180, 180).png().toBuffer()
+/* iOS rounds the home-screen icon itself, so this one ships square. */
+const appleSvg = markSvg({ size: 180, radiusRatio: 0 })
+const applePng = await sharp(Buffer.from(appleSvg)).resize(180, 180).png().toBuffer()
 await writeFile(resolve(publicDir, 'apple-icon.png'), applePng)
 console.log('Wrote public/apple-icon.png')
 
@@ -176,7 +223,7 @@ for (const size of [192, 512]) {
 const icoSizes = [16, 32, 48, 64]
 const icoPngs = await Promise.all(
   icoSizes.map((size) =>
-    sharp(Buffer.from(faviconSvg)).resize(size, size).png().toBuffer()
+    sharp(Buffer.from(faviconRasterSvg)).resize(size, size).png().toBuffer()
   )
 )
 const ico = await pngToIco(icoPngs)
@@ -190,13 +237,6 @@ console.log(`Wrote public/favicon.ico (${ico.length} bytes) sizes: ${icoSizes.jo
 const OG_W = 1200
 const OG_H = 630
 const TILE = 132
-const tileGlyph = glyphPath(font, INITIALS, {
-  width: TILE * 0.66,
-  height: TILE * 0.44,
-  cx: OG_W / 2,
-  cy: 196,
-  letterSpacing: -0.02,
-})
 const ogWordmark = glyphPath(font, NAME, {
   width: 960,
   height: 96,
@@ -223,8 +263,9 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_W}" height="$
   <rect width="${OG_W}" height="${OG_H}" fill="${PAPER}"/>
   <rect x="0" y="0" width="${OG_W}" height="14" fill="${RED}"/>
   <rect x="0" y="${OG_H - 14}" width="${OG_W}" height="14" fill="${INK}"/>
-  <rect x="${(OG_W - TILE) / 2}" y="${196 - TILE / 2}" width="${TILE}" height="${TILE}" rx="24" ry="24" fill="${RED}"/>
-  <path d="${tileGlyph.d}" fill="${PAPER}"/>
+  <g transform="translate(${(OG_W - TILE) / 2},${196 - TILE / 2})">
+  ${markBody({ size: TILE, field: INK, letter: PAPER, rule: RED })}
+  </g>
   <path d="${ogWordmark.d}" fill="${INK}"/>
   <rect x="290" y="${492}" width="${OG_W - 580}" height="1" fill="${HAIRLINE}"/>
   <path d="${ogTagline.d}" fill="${MUTED}"/>
@@ -285,3 +326,36 @@ await writeFile(
   ) + '\n'
 )
 console.log('Wrote public/site.webmanifest')
+
+/* ------------------------------------------------------------------
+   6. Mark geometry for the app, so the header tile is the same drawing
+   as public/logo.svg without costing a request. The outlines live here
+   rather than in the component because they come out of the font.
+   ------------------------------------------------------------------ */
+
+const G = 512
+const appGlyph = glyphPath(font, 'A', {
+  height: G * MARK.large.letter,
+  cx: G / 2,
+  cy: G * MARK.large.cy,
+})
+const n = (v) => Number(v.toFixed(2))
+await writeFile(
+  resolve(root, 'src/lib/brand-mark.ts'),
+  `// Generated by scripts/generate-brand.mjs — run \`npm run brand\` to update.
+//
+// The "A" monogram on its baseline rule, on a ${G}-unit grid. Drawn inline by
+// <BrandMark> so the masthead tile matches public/logo.svg exactly.
+export const MARK_GRID = ${G}
+export const MARK_RADIUS = ${n(G * RADIUS_RATIO)}
+export const MARK_GLYPH =
+  '${appGlyph.d}'
+export const MARK_RULE = {
+  x: ${n(G * MARK.large.ruleX)},
+  y: ${n(G * MARK.large.ruleY)},
+  width: ${n(G * (1 - 2 * MARK.large.ruleX))},
+  height: ${n(G * MARK.large.ruleH)},
+}
+`
+)
+console.log('Wrote src/lib/brand-mark.ts')

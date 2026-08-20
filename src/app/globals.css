@@ -179,10 +179,6 @@ a:hover .headline {
   box-shadow: var(--shadow-md);
 }
 
-.st-brand-mark {
-  border-radius: var(--r-md);
-}
-
 /* ---------- rules & dividers ---------- */
 
 .st-divider {

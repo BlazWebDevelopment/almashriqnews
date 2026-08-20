@@ -1,31 +1,48 @@
-import { SITE_INITIALS, SITE_NAME } from '@/lib/brand'
+import { SITE_NAME } from '@/lib/brand'
+import { MARK_GLYPH, MARK_GRID, MARK_RADIUS, MARK_RULE } from '@/lib/brand-mark'
 
 /**
- * The ASN monogram tile. Deliberately rebuilt in CSS rather than loaded as an
- * image so it matches `public/logo.svg` exactly while costing no request —
- * both are the initials in white on a signal-red rounded square.
+ * The house mark: an "A" monogram standing on the red press rule, on an ink
+ * tile. Drawn inline from the same outlines as `public/logo.svg` so the
+ * masthead, the favicon and the social card are one drawing at no extra
+ * request. `tone="inverse"` reverses the tile for the dark footer slab.
  */
 export function BrandMark({
   size = 40,
+  tone = 'ink',
   className = '',
 }: {
   size?: number
+  tone?: 'ink' | 'inverse'
   className?: string
 }) {
+  const field = tone === 'inverse' ? 'var(--bg-base)' : 'var(--ink)'
+  const letter = tone === 'inverse' ? 'var(--ink)' : 'var(--bg-base)'
+
   return (
-    <span
+    <svg
+      viewBox={`0 0 ${MARK_GRID} ${MARK_GRID}`}
+      width={size}
+      height={size}
       aria-hidden="true"
-      className={`st-brand-mark inline-flex shrink-0 items-center justify-center bg-[color:var(--accent)] font-sans font-extrabold uppercase leading-none text-white ${className}`}
-      style={{
-        width: size,
-        height: size,
-        borderRadius: Math.max(3, Math.round(size * 0.15)),
-        fontSize: size * 0.325,
-        letterSpacing: '-0.02em',
-      }}
+      className={`shrink-0 ${className}`}
     >
-      {SITE_INITIALS}
-    </span>
+      <rect
+        width={MARK_GRID}
+        height={MARK_GRID}
+        rx={MARK_RADIUS}
+        ry={MARK_RADIUS}
+        fill={field}
+      />
+      <path d={MARK_GLYPH} fill={letter} />
+      <rect
+        x={MARK_RULE.x}
+        y={MARK_RULE.y}
+        width={MARK_RULE.width}
+        height={MARK_RULE.height}
+        fill="var(--accent)"
+      />
+    </svg>
   )
 }
 
