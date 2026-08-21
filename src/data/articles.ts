@@ -42,7 +42,7 @@ import janeKennedyPatientImage from '@/context/484074327_1045246380963804_178852
 import rexCursorHeaderImage from '@/context/B93k1lcWLZ.png'
 import rexDogImage from '@/context/N9BBhwsEyN.png'
 import heliMountainHeaderImage from '@/context/bFALYuK12n.png'
-import heliDogImage from '@/context/izMyAPHYLG.png'
+import heliRescueImage from '@/context/izMyAPHYLG.png'
 
 
 const hero1Image =
@@ -129,7 +129,48 @@ export interface Article {
 
 export const articles: Article[] = [
 
- 
+  {
+    id: '98437357',
+    title: 'Dog Ollie Found Alive After Surviving Nearly Three Months Alone in Frozen Mountains',
+    summary:
+      'Ollie, a small dog separated from his owner during a winter snowstorm, has been found alive nearly three months later — emaciated but without major injuries after surviving alone in a remote mountain region.',
+    body: [
+      'A small dog named Ollie has stunned rescuers after being discovered alive in a remote mountain region nearly three months after disappearing during a winter hiking trip.',
+      {
+        type: 'image',
+        src: heliRescueImage,
+        caption:
+          'Ollie after being found — extremely thin and exhausted, but alive after nearly three months alone in the mountains.',
+        alt: 'A small white and black dog lying on a rug, visibly thin after surviving in the wilderness',
+      },
+      'Ollie vanished after becoming separated from his owner during an unexpected snowstorm high in the mountains. Despite an extensive search involving rescue teams, volunteers and local hikers, there was no sign of the dog.',
+      'As days turned into weeks, temperatures continued to fall and heavy snowfall covered much of the surrounding wilderness. With freezing nights, limited food and several storms moving through the region, hopes of finding Ollie alive slowly began to fade.',
+      'But almost three months after his disappearance, a group of hikers spotted something moving near a snow-covered rocky outcrop several miles from the area where Ollie had last been seen.',
+      'At first, they believed it was a small wild animal.',
+      'When they moved closer, they realized it was a dog.',
+      'Ollie was extremely thin, exhausted and covered in dirt, but he was alive.',
+      'The hikers gave him water, wrapped him in warm clothing and contacted rescuers, who carried him down from the mountain. He was later taken to a veterinary clinic for examination.',
+      'Veterinarians said Ollie had lost a significant amount of body weight and was dehydrated, but remarkably showed no major injuries.',
+      { type: 'heading', text: 'How Ollie survived' },
+      'Exactly how Ollie managed to survive for nearly three months remains unknown.',
+      'Experts believe he may have found shelter between rocks or beneath trees during the worst weather. He likely survived by drinking melted snow and water from mountain streams while searching for whatever food he could find.',
+      'His small size may also have allowed him to shelter in places protected from strong winds and snowfall.',
+      'Those involved in the rescue described his survival as extraordinary considering the conditions he endured.',
+      { type: 'heading', text: 'Reunited with his family' },
+      'After being reunited with his family, Ollie reportedly spent much of his first days sleeping, eating small meals and staying close to the people around him.',
+      'His strength has gradually begun returning.',
+      'Weeks after being rescued, Ollie has already started taking short walks again — although his family says his days of disappearing into the mountains alone are definitely over.',
+      'What began as a hiking trip followed by nearly three months of uncertainty has now become an extraordinary survival story.',
+      'Against freezing temperatures, snowstorms, hunger and isolation, Ollie somehow found a way to stay alive until someone finally found him.',
+    ],
+    category: 'World',
+    time: '12:45',
+    section: 'hot',
+    image: heliMountainHeaderImage,
+    byline: 'Alma Shriq News World Desk',
+    date: '2026-08-21',
+  },
+
   {
     id: '98437349',
     title:
