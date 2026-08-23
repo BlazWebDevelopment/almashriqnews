@@ -136,38 +136,6 @@ export interface Article {
 
 export const articles: Article[] = [
 
-  {
-    id: '98437360',
-    title:
-      'Trump Leaves Courtroom Stunned After Calling Meme Coins “Mimei Coins” During Heated Crypto Questioning',
-    summary:
-      'In a satirical courtroom exchange about his cryptocurrency ventures, Donald Trump repeatedly referred to “meme coins” as “Mimei coins,” sending crypto Twitter into overdrive and reviving jokes about the Official Trump token.',
-    body: [
-      'WASHINGTON — Donald Trump unexpectedly became the center of a viral crypto moment after repeatedly referring to “meme coins” as “Mimei coins” during fictional courtroom questioning surrounding controversy over his cryptocurrency ventures.',
-      'What was supposed to be a serious discussion about cryptocurrency quickly turned into an internet spectacle after Trump appeared to struggle with the term “meme coin.”',
-      'According to this satirical scenario, Trump initially referred to the tokens as “Mimei coins” while answering a question about speculative cryptocurrencies.',
-      'When the term came up again, he reportedly repeated the pronunciation.',
-      '“These Mimei coins, a lot of people are talking about them,” the fictional Trump quote reads. “Very successful coins. People like them.”',
-      'The imaginary exchange immediately sent social media into overdrive, with crypto traders joking that “Mimei coin” could become the next major meme-token trend.',
-      { type: 'heading', text: 'From Meme Coin to “Mimei Coin”' },
-      'Trump\'s relationship with cryptocurrency has attracted enormous attention since the launch of the Official Trump token, commonly known as TRUMP.',
-      'The token became one of the most talked-about political meme coins in the world, while Trump\'s broader connections to cryptocurrency projects have also generated scrutiny and controversy.',
-      'That made the fictional pronunciation mistake particularly amusing to crypto communities: the man whose name became attached to one of the world\'s most recognizable political meme coins supposedly couldn\'t pronounce the category correctly.',
-      'Within minutes, jokes began circulating:',
-      '“Forget meme coins. We trade Mimei coins now.”',
-      '“The Mimei coin supercycle has officially begun.”',
-      '“Meme coins are dead. Welcome to Mimei season.”',
-      { type: 'heading', text: 'A Viral Moment Waiting to Happen' },
-      'The story resembles real moments in which crypto terminology has been mispronounced by public figures and Trump-linked figures. But there is currently no verified evidence that Trump actually called meme coins “Mimei coins” during a court appearance.',
-      'For now, the courtroom version remains satire — although in the unpredictable world of crypto, “Mimei coin” sounds exactly like the kind of phrase traders could turn into a token overnight.',
-    ],
-    category: 'Crypto',
-    time: '12:30',
-    section: 'hot',
-    image: trumpMimeiCourtHeaderImage,
-    byline: 'Alma Shriq News Crypto Desk',
-    date: '2026-08-23',
-  },
 
   {
     id: '98437356',
