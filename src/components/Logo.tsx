@@ -1,11 +1,11 @@
 import { SITE_NAME } from '@/lib/brand'
-import { MARK_GLYPH, MARK_GRID, MARK_RADIUS, MARK_RULE } from '@/lib/brand-mark'
+import { MARK_GRID, MARK_HORIZON, MARK_RADIUS, MARK_SUN } from '@/lib/brand-mark'
 
 /**
- * The house mark: an "A" monogram standing on the red press rule, on an ink
- * tile. Drawn inline from the same outlines as `public/logo.svg` so the
- * masthead, the favicon and the social card are one drawing at no extra
- * request. `tone="inverse"` reverses the tile for the dark footer slab.
+ * The house mark: the red mashriq sun rising over a horizon rule, on a
+ * rounded ink tile. Drawn inline from the same geometry as `public/logo.svg`
+ * so the masthead, the favicon and the social card are one drawing at no
+ * extra request. `tone="inverse"` reverses the tile for the dark footer slab.
  */
 export function BrandMark({
   size = 40,
@@ -17,7 +17,7 @@ export function BrandMark({
   className?: string
 }) {
   const field = tone === 'inverse' ? 'var(--bg-base)' : 'var(--ink)'
-  const letter = tone === 'inverse' ? 'var(--ink)' : 'var(--bg-base)'
+  const horizon = tone === 'inverse' ? 'var(--ink)' : 'var(--bg-base)'
 
   return (
     <svg
@@ -34,13 +34,13 @@ export function BrandMark({
         ry={MARK_RADIUS}
         fill={field}
       />
-      <path d={MARK_GLYPH} fill={letter} />
+      <path d={MARK_SUN} fill="var(--brand-red)" />
       <rect
-        x={MARK_RULE.x}
-        y={MARK_RULE.y}
-        width={MARK_RULE.width}
-        height={MARK_RULE.height}
-        fill="var(--brand-red)"
+        x={MARK_HORIZON.x}
+        y={MARK_HORIZON.y}
+        width={MARK_HORIZON.width}
+        height={MARK_HORIZON.height}
+        fill={horizon}
       />
     </svg>
   )

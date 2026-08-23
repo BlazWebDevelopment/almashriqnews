@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="ALMA SHRIQ NEWS">
   <style>
     svg { color: #0f1419 }
-    @media (prefers-color-scheme: dark) { svg { color: #ffffff } path { fill: #0f1419 } }
+    @media (prefers-color-scheme: dark) { svg { color: #ffffff } .h { fill: #0f1419 } }
   </style>
-  <rect width="64" height="64" rx="0" ry="0" fill="currentColor"/>
-  <path d="M15.79 44.48L15.79 44.48Q15.33 44.48 15.12 44.04Q14.91 43.6 15.14 42.94L15.14 42.94L26.6 10.9Q26.79 10.39 27.07 10.15Q27.35 9.92 27.9 9.92L27.9 9.92L36.01 9.92Q37.17 9.92 37.59 11.08L37.59 11.08L48.91 43.04Q49.05 43.46 48.91 43.97Q48.77 44.48 48.26 44.48L48.26 44.48L40.25 44.48Q39.5 44.48 39.27 43.73L39.27 43.73L37.22 37.68Q37.13 37.49 37.01 37.33Q36.89 37.17 36.52 37.17L36.52 37.17L25.95 37.17Q25.44 37.17 25.3 37.68L25.3 37.68L23.11 43.83Q23.01 44.11 22.78 44.29Q22.55 44.48 22.08 44.48L22.08 44.48L15.79 44.48M27.95 30.09L34.43 30.09Q35.08 30.09 34.84 29.2L34.84 29.2L31.49 19.84Q31.4 19.61 31.21 19.61Q31.02 19.61 30.93 19.84L30.93 19.84L27.53 29.2Q27.21 30.09 27.95 30.09L27.95 30.09" fill="#ffffff"/>
-  <rect x="10.88" y="47.36" width="42.24" height="6.4" fill="#c8102e"/>
+  <rect width="64" height="64" rx="12" ry="12" fill="currentColor"/>
+  <path d="M11.52 38.4A20.48 20.48 0 0 1 52.48 38.4Z" fill="#c8102e"/>
+  <rect class="h" x="5.12" y="38.4" width="53.76" height="4.8" fill="#ffffff"/>
 </svg>

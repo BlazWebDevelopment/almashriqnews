@@ -125,36 +125,69 @@ function glyphPath(font, text, { height, width, cx, cy, letterSpacing = 0 }) {
 const font = await loadFont()
 
 /* ------------------------------------------------------------------
-   1. The mark — an "A" monogram on an ink tile, standing on a red
-   baseline rule. The rule is the house press rule, so the tile reads
-   as a masthead rather than an app badge.
+   1. The mark — a red sun rising over a paper horizon rule, on a
+   rounded ink tile. "Al Mashriq" is the East, the place of sunrise,
+   so the symbol is the name.
 
    Geometry is expressed as fractions of the tile so every size is the
-   same drawing. Below ~64px the letter grows and the rule thickens,
-   because a hairline rule vanishes once it lands under a pixel.
+   same drawing. The large mark carries five tapered rays; below ~64px
+   the rays vanish into pixels, so the small variant drops them, grows
+   the sun and thickens the horizon.
    ------------------------------------------------------------------ */
 
 const MARK = {
-  large: { letter: 0.48, cy: 0.435, ruleX: 0.2, ruleY: 0.735, ruleH: 0.075 },
-  small: { letter: 0.54, cy: 0.425, ruleX: 0.17, ruleY: 0.74, ruleH: 0.1 },
+  large: {
+    sunR: 0.26,
+    horizonY: 0.635,
+    horizonX: 0.14,
+    horizonH: 0.03,
+    rays: { inner: 0.335, outer: 0.42, halfIn: 4.5, halfOut: 2.25 },
+  },
+  small: {
+    sunR: 0.32,
+    horizonY: 0.6,
+    horizonX: 0.08,
+    horizonH: 0.075,
+    rays: null,
+  },
 }
-/* Square tile: the 2018 broadsheet design uses no rounded corners anywhere. */
-const RADIUS_RATIO = 0
+/* Rounded tile: reads as a modern app mark instead of a stamp. */
+const RADIUS_RATIO = 0.1875
 
-/** Tile, monogram and rule as bare markup, ready to inline at any size. */
-function markBody({ size, small = false, field, letter, rule, radiusRatio = RADIUS_RATIO }) {
+const RAY_ANGLES = [157.5, 123.75, 90, 56.25, 22.5]
+
+/** One tapered ray as a polygon, angles in degrees above the horizon. */
+function rayPath(cx, cy, angleDeg, r1, r2, halfIn, halfOut) {
+  const rad = (d) => (d * Math.PI) / 180
+  const pt = (r, deg) =>
+    `${Number((cx + r * Math.cos(rad(deg))).toFixed(2))} ${Number((cy - r * Math.sin(rad(deg))).toFixed(2))}`
+  return `M${pt(r1, angleDeg - halfIn)}L${pt(r2, angleDeg - halfOut)}L${pt(r2, angleDeg + halfOut)}L${pt(r1, angleDeg + halfIn)}Z`
+}
+
+/** Sun disc plus rays as one path, on a `size`-unit grid. */
+function sunPath(size, m) {
+  const cx = size / 2
+  const cy = size * m.horizonY
+  const r = size * m.sunR
+  const n = (v) => Number(v.toFixed(2))
+  let d = `M${n(cx - r)} ${n(cy)}A${n(r)} ${n(r)} 0 0 1 ${n(cx + r)} ${n(cy)}Z`
+  if (m.rays) {
+    for (const a of RAY_ANGLES) {
+      d += rayPath(cx, cy, a, size * m.rays.inner, size * m.rays.outer, m.rays.halfIn, m.rays.halfOut)
+    }
+  }
+  return d
+}
+
+/** Tile, sun and horizon as bare markup, ready to inline at any size. */
+function markBody({ size, small = false, field, horizon, sun, radiusRatio = RADIUS_RATIO }) {
   const m = small ? MARK.small : MARK.large
   const n = (v) => Number(v.toFixed(2))
-  const glyph = glyphPath(font, 'A', {
-    height: size * m.letter,
-    cx: size / 2,
-    cy: size * m.cy,
-  })
   const r = n(size * radiusRatio)
   return [
     `<rect width="${size}" height="${size}" rx="${r}" ry="${r}" fill="${field}"/>`,
-    `<path d="${glyph.d}" fill="${letter}"/>`,
-    `<rect x="${n(size * m.ruleX)}" y="${n(size * m.ruleY)}" width="${n(size * (1 - 2 * m.ruleX))}" height="${n(size * m.ruleH)}" fill="${rule}"/>`,
+    `<path d="${sunPath(size, m)}" fill="${sun}"/>`,
+    `<rect class="h" x="${n(size * m.horizonX)}" y="${n(size * m.horizonY)}" width="${n(size * (1 - 2 * m.horizonX))}" height="${n(size * m.horizonH)}" fill="${horizon}"/>`,
   ].join('\n  ')
 }
 
@@ -162,13 +195,13 @@ function markSvg({
   size,
   small = false,
   field = INK,
-  letter = PAPER,
-  rule = RED,
+  horizon = PAPER,
+  sun = RED,
   radiusRatio = RADIUS_RATIO,
   style = '',
 }) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${NAME}">
-  ${style}${markBody({ size, small, field, letter, rule, radiusRatio })}
+  ${style}${markBody({ size, small, field, horizon, sun, radiusRatio })}
 </svg>
 `
 }
@@ -184,11 +217,11 @@ const faviconSvg = markSvg({
   size: 64,
   small: true,
   field: 'currentColor',
-  letter: PAPER,
-  rule: RED,
+  horizon: PAPER,
+  sun: RED,
   style: `<style>
     svg { color: ${INK} }
-    @media (prefers-color-scheme: dark) { svg { color: ${PAPER} } path { fill: ${INK} } }
+    @media (prefers-color-scheme: dark) { svg { color: ${PAPER} } .h { fill: ${INK} } }
   </style>
   `,
 })
@@ -265,7 +298,7 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_W}" height="$
   <rect x="0" y="0" width="${OG_W}" height="14" fill="${RED}"/>
   <rect x="0" y="${OG_H - 14}" width="${OG_W}" height="14" fill="${INK}"/>
   <g transform="translate(${(OG_W - TILE) / 2},${196 - TILE / 2})">
-  ${markBody({ size: TILE, field: INK, letter: PAPER, rule: RED })}
+  ${markBody({ size: TILE, field: INK, horizon: PAPER, sun: RED })}
   </g>
   <path d="${ogWordmark.d}" fill="${INK}"/>
   <rect x="290" y="${492}" width="${OG_W - 580}" height="1" fill="${HAIRLINE}"/>
@@ -335,27 +368,22 @@ console.log('Wrote public/site.webmanifest')
    ------------------------------------------------------------------ */
 
 const G = 512
-const appGlyph = glyphPath(font, 'A', {
-  height: G * MARK.large.letter,
-  cx: G / 2,
-  cy: G * MARK.large.cy,
-})
 const n = (v) => Number(v.toFixed(2))
 await writeFile(
   resolve(root, 'src/lib/brand-mark.ts'),
   `// Generated by scripts/generate-brand.mjs — run \`npm run brand\` to update.
 //
-// The "A" monogram on its baseline rule, on a ${G}-unit grid. Drawn inline by
+// The rising sun over its horizon rule, on a ${G}-unit grid. Drawn inline by
 // <BrandMark> so the masthead tile matches public/logo.svg exactly.
 export const MARK_GRID = ${G}
 export const MARK_RADIUS = ${n(G * RADIUS_RATIO)}
-export const MARK_GLYPH =
-  '${appGlyph.d}'
-export const MARK_RULE = {
-  x: ${n(G * MARK.large.ruleX)},
-  y: ${n(G * MARK.large.ruleY)},
-  width: ${n(G * (1 - 2 * MARK.large.ruleX))},
-  height: ${n(G * MARK.large.ruleH)},
+export const MARK_SUN =
+  '${sunPath(G, MARK.large)}'
+export const MARK_HORIZON = {
+  x: ${n(G * MARK.large.horizonX)},
+  y: ${n(G * MARK.large.horizonY)},
+  width: ${n(G * (1 - 2 * MARK.large.horizonX))},
+  height: ${n(G * MARK.large.horizonH)},
 }
 `
 )
