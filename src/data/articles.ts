@@ -44,6 +44,9 @@ import rexDogImage from '@/context/N9BBhwsEyN.png'
 import heliMountainHeaderImage from '@/context/bFALYuK12n.png'
 import heliRescueImage from '@/context/izMyAPHYLG.png'
 import trumpMimeiCourtHeaderImage from '@/context/MPBsoDve7F.png'
+import youtubeYCoinsHeaderImage from '@/context/mqn1yLJtzR.png'
+import youtubeYCoinsBuyImage from '@/context/adXCxXs2WL.png'
+import youtubeYCoinsShopImage from '@/context/XlVD8Pl3gW.png'
 
 
 const hero1Image =
@@ -136,6 +139,52 @@ export interface Article {
 
 export const articles: Article[] = [
 
+  {
+    id: '98437360',
+    title: 'YouTube Introduces “Y Coins,” a New Way for Fans to Support Creators',
+    summary:
+      'YouTube is rolling out Y Coins, a virtual currency viewers can buy and send to eligible creators as direct support across videos, livestreams, Shorts and more — managed from a new Coins Shop inside YouTube Studio.',
+    body: [
+      'YouTube is expanding the ways viewers can support their favorite creators with the introduction of Y Coins, a new virtual currency designed for direct creator support across the platform.',
+      {
+        type: 'image',
+        src: youtubeYCoinsBuyImage,
+        caption:
+          'YouTube Studio’s Buy Y Coin screen shows coin packages starting at 20 coins for $0.29, with a running balance displayed at the top of the purchase flow.',
+        alt: 'YouTube Studio Buy Y Coin screen showing coin packages and a balance of nine coins',
+      },
+      'The new system would allow users to purchase Y Coins through YouTube and YouTube Studio, keep them in their account balance, and send them to eligible creators as a form of digital support.',
+      { type: 'heading', text: 'A New Way to Support Creators' },
+      'Instead of relying only on memberships, Super Chats, or traditional donations, Y Coins would give viewers a simple way to reward creators whenever they enjoy a video, livestream, Short, or other piece of content.',
+      'Users could purchase different Y Coin packages and spend the coins across participating YouTube channels.',
+      'The goal of the feature is simple: make supporting creators faster, easier, and more integrated into the YouTube experience.',
+      { type: 'heading', text: 'Y Coins Inside YouTube Studio' },
+      'Creators would be able to manage Y Coin earnings directly through YouTube Studio, alongside their existing monetization tools.',
+      'A dedicated Coins Shop section could allow users to purchase additional coins, while creators could view received coins, supporter activity, and estimated earnings from one dashboard.',
+      'YouTube could also display a user’s current Y Coin balance directly inside the purchase interface.',
+      { type: 'heading', text: 'Designed Around Creator Support' },
+      {
+        type: 'image',
+        src: youtubeYCoinsShopImage,
+        caption:
+          'A new Coins shop entry, marked with a red “New” badge, appears in the YouTube Studio sidebar alongside existing creator tools.',
+        alt: 'YouTube Studio sidebar showing the new Coins shop menu item with a New badge',
+      },
+      'The Y Coin system would primarily focus on helping viewers financially support the creators and communities they follow.',
+      'Creators receiving Y Coins could potentially convert eligible balances into creator earnings, depending on YouTube’s monetization rules, fees, and regional availability.',
+      'For viewers, the feature would provide another way to interact with creators without committing to a recurring membership.',
+      { type: 'heading', text: 'Gradual Rollout' },
+      'Like many major YouTube features, Y Coins would likely be introduced gradually, beginning with selected creators and regions before expanding to a wider audience.',
+      'Availability, pricing, creator revenue share, withdrawal requirements, and supported countries would depend on YouTube’s final implementation.',
+      'If launched globally, Y Coins could become one of YouTube’s biggest additions to its creator-support ecosystem, giving millions of viewers a new way to financially support the people behind the content they watch every day.',
+    ],
+    category: 'Tech',
+    time: '19:15',
+    section: 'tech',
+    image: youtubeYCoinsHeaderImage,
+    byline: 'Alma Shriq News Tech Desk',
+    date: '2026-08-23',
+  },
 
   {
     id: '98437356',
