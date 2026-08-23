@@ -43,6 +43,7 @@ import rexCursorHeaderImage from '@/context/B93k1lcWLZ.png'
 import rexDogImage from '@/context/N9BBhwsEyN.png'
 import heliMountainHeaderImage from '@/context/bFALYuK12n.png'
 import heliRescueImage from '@/context/izMyAPHYLG.png'
+import trumpMimeiCourtHeaderImage from '@/context/MPBsoDve7F.png'
 
 
 const hero1Image =
@@ -102,6 +103,12 @@ const washingtonDcImage =
   'https://images.unsplash.com/photo-1617581629397-a72507c3de9e?w=1600&q=80&auto=format&fit=crop'
 const dsaRallyImage =
   'https://images.unsplash.com/photo-1567942712661-82b9b407abbf?w=1600&q=80&auto=format&fit=crop'
+const gansevoortSoccerImage =
+  'https://images.unsplash.com/photo-1552667466-07770ae110d0?w=1600&q=80&auto=format&fit=crop'
+const floodlitPitchImage =
+  'https://images.unsplash.com/photo-1487466365202-1afdb86c764e?w=1600&q=80&auto=format&fit=crop'
+const giantsPreseasonImage =
+  'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=1600&q=80&auto=format&fit=crop'
 
 export type ArticleImage = string | StaticImageData
 
@@ -130,45 +137,204 @@ export interface Article {
 export const articles: Article[] = [
 
   {
-    id: '98437357',
-    title: 'Dog Ollie Found Alive After Surviving Nearly Three Months Alone in Frozen Mountains',
+    id: '98437360',
+    title:
+      'Trump Leaves Courtroom Stunned After Calling Meme Coins “Mimei Coins” During Heated Crypto Questioning',
     summary:
-      'Ollie, a small dog separated from his owner during a winter snowstorm, has been found alive nearly three months later — emaciated but without major injuries after surviving alone in a remote mountain region.',
+      'In a satirical courtroom exchange about his cryptocurrency ventures, Donald Trump repeatedly referred to “meme coins” as “Mimei coins,” sending crypto Twitter into overdrive and reviving jokes about the Official Trump token.',
     body: [
-      'A small dog named Ollie has stunned rescuers after being discovered alive in a remote mountain region nearly three months after disappearing during a winter hiking trip.',
+      'WASHINGTON — Donald Trump unexpectedly became the center of a viral crypto moment after repeatedly referring to “meme coins” as “Mimei coins” during fictional courtroom questioning surrounding controversy over his cryptocurrency ventures.',
+      'What was supposed to be a serious discussion about cryptocurrency quickly turned into an internet spectacle after Trump appeared to struggle with the term “meme coin.”',
+      'According to this satirical scenario, Trump initially referred to the tokens as “Mimei coins” while answering a question about speculative cryptocurrencies.',
+      'When the term came up again, he reportedly repeated the pronunciation.',
+      '“These Mimei coins, a lot of people are talking about them,” the fictional Trump quote reads. “Very successful coins. People like them.”',
+      'The imaginary exchange immediately sent social media into overdrive, with crypto traders joking that “Mimei coin” could become the next major meme-token trend.',
+      { type: 'heading', text: 'From Meme Coin to “Mimei Coin”' },
+      'Trump\'s relationship with cryptocurrency has attracted enormous attention since the launch of the Official Trump token, commonly known as TRUMP.',
+      'The token became one of the most talked-about political meme coins in the world, while Trump\'s broader connections to cryptocurrency projects have also generated scrutiny and controversy.',
+      'That made the fictional pronunciation mistake particularly amusing to crypto communities: the man whose name became attached to one of the world\'s most recognizable political meme coins supposedly couldn\'t pronounce the category correctly.',
+      'Within minutes, jokes began circulating:',
+      '“Forget meme coins. We trade Mimei coins now.”',
+      '“The Mimei coin supercycle has officially begun.”',
+      '“Meme coins are dead. Welcome to Mimei season.”',
+      { type: 'heading', text: 'A Viral Moment Waiting to Happen' },
+      'The story resembles real moments in which crypto terminology has been mispronounced by public figures and Trump-linked figures. But there is currently no verified evidence that Trump actually called meme coins “Mimei coins” during a court appearance.',
+      'For now, the courtroom version remains satire — although in the unpredictable world of crypto, “Mimei coin” sounds exactly like the kind of phrase traders could turn into a token overnight.',
+    ],
+    category: 'Crypto',
+    time: '12:30',
+    section: 'hot',
+    image: trumpMimeiCourtHeaderImage,
+    byline: 'Alma Shriq News Crypto Desk',
+    date: '2026-08-23',
+  },
+
+  {
+    id: '98437356',
+    title:
+      'Parents Say Aggressive Vagrants Are Menacing Girls’ Soccer Practice at Hudson River Park',
+    summary:
+      'Families using the $73 million field at Gansevoort Peninsula describe public nudity, obscene taunts and a bench set alight beside children as young as five. The NYPD says it has had no 311 complaints about the site.',
+    body: [
+      'Parents at one of Manhattan’s newest waterfront parks say a rotating group of homeless men has turned the sidelines of a girls’ soccer field into a place where children as young as five are exposed to public nudity, obscene taunts and, on at least one occasion, a bench set on fire.',
+      'The complaints center on the sports field at Gansevoort Peninsula, the $73 million park that opened in 2023 on the Hudson River in the Meatpacking District, across the West Side Highway from the Whitney Museum.',
       {
         type: 'image',
-        src: heliRescueImage,
+        src: floodlitPitchImage,
         caption:
-          'Ollie after being found — extremely thin and exhausted, but alive after nearly three months alone in the mountains.',
-        alt: 'A small white and black dog lying on a rug, visibly thin after surviving in the wilderness',
+          'Illustrative: a floodlit municipal soccer pitch. Parents say the open layout at Gansevoort Peninsula lets anyone walk up on a children’s session.',
+        alt: 'An empty floodlit soccer pitch with goalposts at night',
       },
-      'Ollie vanished after becoming separated from his owner during an unexpected snowstorm high in the mountains. Despite an extensive search involving rescue teams, volunteers and local hikers, there was no sign of the dog.',
-      'As days turned into weeks, temperatures continued to fall and heavy snowfall covered much of the surrounding wilderness. With freezing nights, limited food and several storms moving through the region, hopes of finding Ollie alive slowly began to fade.',
-      'But almost three months after his disappearance, a group of hikers spotted something moving near a snow-covered rocky outcrop several miles from the area where Ollie had last been seen.',
-      'At first, they believed it was a small wild animal.',
-      'When they moved closer, they realized it was a dog.',
-      'Ollie was extremely thin, exhausted and covered in dirt, but he was alive.',
-      'The hikers gave him water, wrapped him in warm clothing and contacted rescuers, who carried him down from the mountain. He was later taken to a veterinary clinic for examination.',
-      'Veterinarians said Ollie had lost a significant amount of body weight and was dehydrated, but remarkably showed no major injuries.',
-      { type: 'heading', text: 'How Ollie survived' },
-      'Exactly how Ollie managed to survive for nearly three months remains unknown.',
-      'Experts believe he may have found shelter between rocks or beneath trees during the worst weather. He likely survived by drinking melted snow and water from mountain streams while searching for whatever food he could find.',
-      'His small size may also have allowed him to shelter in places protected from strong winds and snowfall.',
-      'Those involved in the rescue described his survival as extraordinary considering the conditions he endured.',
-      { type: 'heading', text: 'Reunited with his family' },
-      'After being reunited with his family, Ollie reportedly spent much of his first days sleeping, eating small meals and staying close to the people around him.',
-      'His strength has gradually begun returning.',
-      'Weeks after being rescued, Ollie has already started taking short walks again — although his family says his days of disappearing into the mountains alone are definitely over.',
-      'What began as a hiking trip followed by nearly three months of uncertainty has now become an extraordinary survival story.',
-      'Against freezing temperatures, snowstorms, hunger and isolation, Ollie somehow found a way to stay alive until someone finally found him.',
+      'New York Post reporters who spent Wednesday morning at the field described a man in an obscene rubber mask standing less than 20 feet from the children, then pulling off his shirt and shouting at no one in particular shortly after 9 a.m.',
+      '“Everyone wants to party, but no one wants to pay for party!” he yelled, according to the paper.',
+      'When he removed the mask, onlookers said, his face was covered in roughly 30 piercings, with studs ringing his mouth, eyebrows and eyes. A second piece of the costume, worn on his head, was scrawled with obscenities.',
+      { type: 'heading', text: 'Parents say nothing changes' },
+      'Jason Fernández, whose daughter trains with the Gotham Girls Football Club, said the masked man had started waving at the players. “It’s extremely concerning,” he told the Post. “Nothing is being done.”',
+      '“When it comes to the kids, something has to happen,” he said. “These men need help, but obviously they’re not getting it and because of that everyone else has to suffer.”',
+      'Neighbors across the street told the paper the group drinks at a Mobil station on Eighth Avenue before walking over to the park, where their numbers can swell to a dozen.',
+      'A dog walker, Geronimo Silva, said he watched two members of the group have sex on a bench in the middle of the afternoon about a week earlier. “This city is becoming worse,” he said.',
+      'During the Post’s visit, one man slept on a bench in front of the children and another lay inside the goal. A fourth panhandled while making an obscene gesture, announcing that he accepted Cash App, Venmo, PayPal and Zelle.',
+      'One parent said a man the families have nicknamed “Fire Bug” recently set fire to benches while practice was underway. Fernández pointed out scorch marks on the underside of one of them.',
+      { type: 'heading', text: 'City agencies say the park is not a hotspot' },
+      'Encampments at the 5.5-acre site, which also has a beach and a boardwalk, were cleared twice last summer. This year the NYPD told the Post it had not responded to incidents at the park and had received no 311 complaints about the group.',
+      'The Department of Homeless Services said the location was “not a known hotspot,” but that it would “monitor this location and offer shelter and services to any vulnerable individuals” its teams encounter.',
+      'Saad Afif, who owns Manhattan Football Training and coaches at the field regularly, said the open layout makes it easy for anyone to wander into a session. “A few times I had to step in and tell people to either go away or tell security,” he said.',
+      'Food vendors said they are targeted too. A 26-year-old kiosk worker described threats roughly twice a week, usually from the same faces and usually over demands for free food.',
+      'Parks staff were called to move the group along again on Wednesday. Parents said they expect to see them back.',
+      '“The parks people come around every now and then, but the homeless just leave and come back 10 minutes later,” said one parent, Lee, whose daughter also plays for Gotham Girls.',
+      'Reporting in this story is based on original coverage by the New York Post, which first reported the scenes at Gansevoort Peninsula, and on statements from the NYPD and the city Department of Homeless Services. The photographs are stock file images, not photographs of the events described.',
     ],
-    category: 'World',
-    time: '12:45',
+    category: 'Metro',
+    time: '10:15',
     section: 'hot',
-    image: heliMountainHeaderImage,
-    byline: 'Alma Shriq News World Desk',
-    date: '2026-08-21',
+    image: gansevoortSoccerImage,
+    byline: 'Alma Shriq News Metro Desk',
+    date: '2026-08-23',
+  },
+
+  {
+    id: '98437357',
+    title:
+      'Ohio Doctor Shot Dead in Alleged Murder Plot Arranged by Her 18-Year-Old Daughter',
+    summary:
+      'Tamela Dutcher, 55, who once co-authored research on homicidal adolescents, was killed inside her Delaware County home. Prosecutors say her daughter set up the attack after an argument over chores.',
+    body: [
+      'An Ohio doctor was shot dead in her own living room in an attack that prosecutors say her 18-year-old daughter arranged after the two argued about household chores.',
+      'Tamela Dutcher, 55, was sitting on the couch at the family’s home in Delaware County, north of Columbus, when two men pushed inside shortly after midnight on Aug. 14 and fired a single shot, according to court records and local station WBNS.',
+      {
+        type: 'image',
+        src: fairfaxPoliceImage,
+        caption:
+          'Illustrative: emergency lights at a police cordon. Three people have been charged with aggravated murder in the Delaware County case.',
+        alt: 'Police vehicle emergency lights at night',
+      },
+      'Her husband ran toward the sound. The intruders shot at him, missed and fled, officials said. Dutcher was taken to a hospital and pronounced dead.',
+      'Christian Evans, 20, and Dajameous Payne, 21, have been charged with aggravated murder. So has Dutcher’s daughter, Bryanna Dutcher, who also faces a count of obstruction of justice.',
+      { type: 'heading', text: 'A relationship kept secret' },
+      'Investigators say the younger Dutcher had been seeing Evans without telling her parents, whom she described in a police affidavit as deeply racist, because she believed she would be thrown out of the house if they learned she was dating a Black man.',
+      'On the night of the shooting, after the argument with her mother, she texted Evans about it, according to the affidavit. “If I were you, I would have killed her,” he allegedly replied.',
+      'Evans and Payne then waited outside the house for about 15 minutes while she confirmed where each parent was, prosecutors say. She allegedly texted that her mother was in the living room and her father in the basement. Evans replied that they were pulling on gloves and would “take them both out at the same time.”',
+      'Other messages recovered from her phone included the lines “once they both pass away” and “also I believe you should also get a gun,” police said.',
+      { type: 'heading', text: 'Investigators say she misled them' },
+      'In the hours after the shooting, the affidavit says, Bryanna Dutcher first told officers she had seen no one, then pointed them toward a friend of her mother’s who owed her money. Police wrote that she “repeatedly lied to law enforcement,” delaying the identification of suspects.',
+      'Evans was later seen dropping a bag containing a gun holster and a pair of pants into a dumpster outside his apartment, investigators said. His father told police he had received a text from his son that night, and phone data placed Evans near the Dutcher home at the time of the shooting.',
+      { type: 'heading', text: 'Research that reads differently now' },
+      'Dutcher had co-authored a paper on adolescent violence more than two decades earlier. Writing with Daniel Davis in the International Journal of Adolescent Medicine and Health in January 2002, she noted that while the overwhelming majority of juveniles arrested for homicide are boys, the small number of girls who kill tend to kill relatives.',
+      'An indictment accuses the three of acting “purposely, and with prior calculation and design.” All are being held in the Delaware County Jail.',
+      'On Friday, a lawyer for Evans filed a suggestion of incompetency, arguing that he is not currently fit to stand trial and should be examined by a physician while in custody.',
+      'Reporting in this story is based on court records, a police affidavit, and coverage by the New York Post, WBNS and Oxygen. The photograph is a stock file image, not a photograph of the events described.',
+    ],
+    category: 'US News',
+    time: '13:20',
+    section: 'hot',
+    image: fairfaxPoliceImage,
+    byline: 'Alma Shriq News US Desk',
+    date: '2026-08-23',
+  },
+
+  {
+    id: '98437358',
+    title:
+      'Tyrone Tracy’s Lost Summer Deepens With Costly Fumble in Giants’ 26-3 Win Over Dolphins',
+    summary:
+      'The third-year running back ripped off two runs of more than 10 yards, then put the ball on the ground untouched at the Miami 10. With Najee Harris signed and Devin Singletary rolling, his roster spot is in real danger.',
+    body: [
+      'MIAMI GARDENS, Fla. — With most of their starters in street clothes, the Giants spent a humid Saturday afternoon at Hard Rock Stadium sorting out the back of their roster rather than tuning up the front of it. Some players helped themselves. Tyrone Tracy Jr. did not.',
+      {
+        type: 'image',
+        src: giantsPreseasonImage,
+        caption:
+          'Illustrative: a football on the field before kickoff. The Giants beat the Dolphins 26-3 in Miami Gardens on Aug. 22.',
+        alt: 'An American football resting on a marked grass field',
+      },
+      'The Giants won 26-3 with little difficulty. For Tracy, a third-year running back who produced on two bad teams, the game extended a preseason he will want to forget.',
+      'Devin Singletary started in the backfield, with Cam Skattebo among the frontline offensive players held out alongside quarterback Jaxson Dart. Tracy came in on the second series and stayed on for the third.',
+      'He ran for 11 yards, then cut hard to his left for 12 more. Then, at the Miami 10-yard line, he lost the football without being touched. Jackson Woodard recovered it.',
+      'As the first quarter ran out, Tracy stood by himself on the sideline, looking up at the sky.',
+      '“There’s a lot of guys fighting for jobs on this team,” coach John Harbaugh said afterward. Asked whether the fumble had damaged Tracy’s chances of making the roster, he said: “I’m not commenting on that.”',
+      { type: 'heading', text: 'Singletary and Winston make their case' },
+      'Singletary answered on the next possession, finishing a 71-yard drive with a 13-yard touchdown run to the right. The 28-year-old carried eight times for 40 yards after an impressive camp.',
+      '“He played like he always plays,” Harbaugh said. “One of the most consistent players you’re ever going to see.”',
+      'Jameis Winston handled the entire first half at quarterback, going 15-for-21 for 150 yards and running in an 11-yard touchdown. Dart, who was sharp in Thursday’s joint practice with the Dolphins, was not needed.',
+      '“He was in control, he ran the show, he’s poised in the pocket,” Harbaugh said of Winston. “It’s a great thing to have a quarterback like that as your No. 2.”',
+      'Darius Slayton, back from surgery to repair a sports hernia and quiet for most of the summer, caught four passes for 58 yards. “That was big,” Harbaugh said. “Honestly, I needed to see that.” Odell Beckham Jr. added two catches.',
+      { type: 'heading', text: 'A crowded backfield' },
+      'The fumble was not Tracy’s first misstep of the summer. In the preseason opener against the Vikings he missed a blitz pickup and Dart took a heavy hit.',
+      'The Giants did not frame their signing of Najee Harris as a response to that play, but it changed the math in the running back room. Harris, who opened his career with four straight 1,000-yard seasons in Pittsburgh, is working back from an Achilles tear suffered on Sept. 21 with the Chargers. He took snaps in Thursday’s joint practice but did not play Saturday.',
+      'Harbaugh has also praised Eric Gray’s camp. Skattebo is safe, and Singletary appears to be as well.',
+      'Tracy, a fifth-round pick in 2024, rushed for 839 and 740 yards in his first two seasons and cleared 1,000 yards from scrimmage in both. Under a new coaching staff, that history counts for less than what he shows now.',
+      'He finished Saturday with six carries for 26 yards and three receptions for 22 yards.',
+      'Reporting in this story is based on coverage by the New York Post from Hard Rock Stadium and on postgame comments from Giants coach John Harbaugh. The photograph is a stock file image, not a photograph of the game described.',
+    ],
+    category: 'Sports',
+    time: '22:10',
+    section: 'sports',
+    image: giantsPreseasonImage,
+    byline: 'Alma Shriq News Sports Desk',
+    date: '2026-08-22',
+  },
+
+  {
+    id: '98437359',
+    title: 'Hochul poses as a moderate — her record says otherwise',
+    summary:
+      'The governor’s reputation as a check on Zohran Mamdani does not survive contact with her endorsements, her spending, or her sudden conversion on the pied-à-terre tax.',
+    body: [
+      'New Yorkers who follow Albany closely worked out long ago why Gov. Kathy Hochul has earned her reputation as a weather vane. She shifts with the wind, then presents the shift as prudence.',
+      'Two recent New York Times pieces — an interview, and a longer weekend read separating her from City Hall’s botched rollout of the pied-à-terre tax — were plainly meant to help her. What they actually leave behind is a portrait of a governor who performs moderation while governing in step with Mayor Mamdani and the socialists now steering the Democratic Party.',
+      {
+        type: 'image',
+        src: '/images/np-hochul-blakeman-poll-2.jpg',
+        caption:
+          'Gov. Kathy Hochul speaks during a press conference in New York City on Tuesday, Aug. 11, 2026.',
+        alt: 'Gov. Kathy Hochul speaking at a press conference in New York City',
+      },
+      { type: 'heading', text: 'The endorsement no one else would give' },
+      'She was the only leading New York Democrat to back Mamdani in both the primary and the general election last year. Sens. Chuck Schumer and Kirsten Gillibrand kept their distance, put off by his hostility toward Israel and his war on wealth. Hochul raised no objection then, and shows no second thoughts now.',
+      'She has done more than endorse him. She has helped pay for his agenda, routing billions in state funds to the city. State spending has climbed roughly 30% in the five years since she took office.',
+      'The motive is arithmetic. Mamdani drew 1.1 million votes in the city’s general election. If most of those voters turn out for her in the fall, she beats her Republican challenger, Nassau County Executive Bruce Blakeman, comfortably.',
+      { type: 'heading', text: 'Scolding in private, signing in public' },
+      'The Times casts her as the adult in the room, and she plays the part. She says she told Mamdani privately to concentrate on “the blocking and tackling of city government” after his latest broadside at Israeli Prime Minister Benjamin Netanyahu.',
+      'After the mayor posted a video taunting Citadel founder Ken Griffin over the pied-à-terre tax, she says she told him “There’s a better way to do it,” and suggested he aim at “Saudi Princes and Russian oligarchs” instead.',
+      'And with homeowners now opening confusing letters about that same tax, she says she told him the rollout “has to be cleaned up and fixed.”',
+      'Notice what is missing from all three anecdotes: any objection to the policy itself. Her working definition of moderation is to raise taxes and spending steadily, but to do it competently and with a smile.',
+      { type: 'heading', text: 'The door she just left open' },
+      'The real news in the interview was a single paragraph from Times reporter Grace Ashford: the governor said she had “no intention” of raising taxes or creating new ones in the coming year, but indicated that could change if federal aid to New York were cut.',
+      'That is not a promise. It is an opening bid, and it quietly retires her repeated pledge not to seek another broad income tax increase. Blakeman, who has hammered her on taxes and spending, has just been handed the rest of his campaign.',
+      { type: 'heading', text: 'The pattern' },
+      'This is the Hochul New Yorkers already know. She campaigned against congestion pricing, then imposed it once the votes were counted.',
+      'In March she rejected the income tax increases Mamdani and the Legislature’s left flank wanted. “New Yorkers can’t pay anymore. We have to cut their cost of living,” she said, calling that “Job number one in this budget.” The same day she acknowledged that New York’s tax base had eroded, telling any “patriotic millionaires” who wanted to help to “go down to Palm Beach and see who you bring back home.”',
+      'Less than a month later she came out for the pied-à-terre tax, on the grounds that the wealthy could afford it. “They’re all welcome to stay,” she said. “But those come at a cost and I think it’s fair to ask them to contribute.”',
+      'She has since estimated the levy could raise $500 million a year for the city — a sum nobody would ordinarily describe as a contribution.',
+      'The softened vocabulary is the whole trick. It is meant to suggest there is daylight between the governor and the mayor. There isn’t much.',
+      'Michael Goodwin is a columnist for the New York Post, where a version of this argument first appeared.',
+    ],
+    category: 'Opinion',
+    time: '14:05',
+    section: 'opinion',
+    image: '/images/np-hochul-blakeman-poll.jpg',
+    byline: 'Michael Goodwin',
+    date: '2026-08-22',
   },
 
   {

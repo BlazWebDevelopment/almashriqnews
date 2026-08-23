@@ -40,7 +40,7 @@ export function BrandMark({
         y={MARK_RULE.y}
         width={MARK_RULE.width}
         height={MARK_RULE.height}
-        fill="var(--accent)"
+        fill="var(--brand-red)"
       />
     </svg>
   )

@@ -10,15 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         asn: {
-          ink: '#0f1419',
-          'ink-2': '#171e26',
+          ink: '#121212',
+          'ink-2': '#1c1c1c',
           red: '#c8102e',
-          'red-dark': '#9d0b23',
+          blue: '#005689',
+          'blue-dark': '#003d61',
           paper: '#ffffff',
-          mist: '#f6f7f9',
-          hairline: '#dfe3e9',
-          slate: '#47515e',
-          muted: '#6b7480',
+          mist: '#f5f5f5',
+          hairline: '#dcdcdc',
+          slate: '#4a4a4a',
+          muted: '#6e6e6e',
         },
       },
       fontFamily: {
@@ -31,12 +32,12 @@ const config: Config = {
         broadsheet: '1280px',
       },
       borderRadius: {
-        card: '10px',
-        control: '6px',
+        card: '0px',
+        control: '0px',
       },
       boxShadow: {
-        nav: '0 2px 8px rgba(15, 20, 25, 0.07), 0 1px 2px rgba(15, 20, 25, 0.04)',
-        lift: '0 10px 28px rgba(15, 20, 25, 0.1), 0 2px 6px rgba(15, 20, 25, 0.05)',
+        nav: '0 1px 3px rgba(0, 0, 0, 0.12)',
+        lift: 'none',
       },
     },
   },

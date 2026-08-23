@@ -8,53 +8,54 @@
   --foreground-rgb: 15, 20, 25;
 
   /* ============================================================
-     Alma Shriq News — modern newsroom palette.
-     Cool neutral greys on white, one signal red for brand,
-     kickers, links and live furniture. Dark ink reserved for
-     the top bar and footer slab.
+     Alma Shriq News — flat 2018 broadsheet palette.
+     Light paper, neutral hairlines, a deep news blue for links,
+     kickers and interface accents. Brand red is reserved for the
+     masthead mark and live/breaking furniture. Square corners
+     and hard rules throughout — no rounding, no soft shadows.
      ============================================================ */
 
   --bg-base: #ffffff;
-  --bg-surface: #f6f7f9;
-  --bg-surface-2: #eef1f5;
-  --bg-secondary: #e4e8ee;
+  --bg-surface: #f5f5f5;
+  --bg-surface-2: #ededed;
+  --bg-secondary: #e4e4e4;
 
-  --border-subtle: #edeff3;
-  --border-soft: #dfe3e9;
-  --border-strong: #c6ccd5;
+  --border-subtle: #ececec;
+  --border-soft: #dcdcdc;
+  --border-strong: #b3b3b3;
 
-  --text-primary: #0f1419;
-  --text-secondary: #47515e;
-  --text-muted: #6b7480;
+  --text-primary: #121212;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6e6e6e;
 
-  --accent: #c8102e;
-  --accent-hover: #9d0b23;
-  --accent-subtle: #fdf1f3;
-  --accent-border: #f1c3ca;
+  --accent: #005689;
+  --accent-hover: #003d61;
+  --accent-subtle: #eaf3f9;
+  --accent-border: #b9d5e8;
 
   --live: #c8102e;
   --brand-red: #c8102e;
   --brand-green: #12805c;
 
   /* Dark surfaces: top rail and footer. */
-  --ink: #0f1419;
-  --ink-2: #171e26;
-  --ink-3: #222b35;
-  --on-ink: #e9ecf1;
-  --on-ink-muted: #97a1ae;
-  --on-ink-border: #2a333d;
+  --ink: #121212;
+  --ink-2: #1c1c1c;
+  --ink-3: #2b2b2b;
+  --on-ink: #ececec;
+  --on-ink-muted: #9c9c9c;
+  --on-ink-border: #333333;
 
-  /* Light 2px dividers replace the old black broadsheet rules. */
-  --rule: #dfe3e9;
+  /* Hard broadsheet dividers. */
+  --rule: #dcdcdc;
 
-  --r-sm: 4px;
-  --r-md: 6px;
-  --r-lg: 10px;
-  --r-pill: 999px;
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --r-pill: 0;
 
-  --shadow-sm: 0 1px 2px rgba(15, 20, 25, 0.06);
-  --shadow-md: 0 2px 8px rgba(15, 20, 25, 0.07), 0 1px 2px rgba(15, 20, 25, 0.04);
-  --shadow-lg: 0 10px 28px rgba(15, 20, 25, 0.1), 0 2px 6px rgba(15, 20, 25, 0.05);
+  --shadow-sm: none;
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-lg: none;
 
   /* Font stacks are wired to next/font variables set on <html>. */
   --font-sans: var(--font-ui), 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -130,7 +131,7 @@ a:hover .headline {
 }
 
 .st-wordmark-accent {
-  color: var(--accent);
+  color: var(--brand-red);
 }
 
 /* ---------- page chrome ---------- */
@@ -147,8 +148,8 @@ a:hover .headline {
 
 .st-nav-rail {
   border-top: 1px solid var(--border-soft);
-  border-bottom: 1px solid var(--border-soft);
-  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 2px solid var(--ink);
+  background: var(--bg-base);
 }
 
 .st-ticker-rail {
@@ -171,7 +172,6 @@ a:hover .headline {
   position: sticky;
   top: 0;
   z-index: 40;
-  backdrop-filter: saturate(140%) blur(10px);
   transition: box-shadow 0.2s ease;
 }
 
@@ -191,11 +191,11 @@ a:hover .headline {
   background: var(--rule);
 }
 
-/* Section marker: label over a light rule, with a red tab under the label. */
+/* Section marker: label over a hard ink rule, with a blue tab under the label. */
 .st-section-accent {
   position: relative;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border-soft);
+  border-bottom: 2px solid var(--ink);
 }
 
 .st-section-accent::after {
@@ -330,12 +330,11 @@ a:hover .headline {
   background: var(--bg-base);
   border: 1px solid var(--border-soft);
   border-radius: var(--r-lg);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .st-card:hover {
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
 }
 
 .st-panel {
@@ -629,8 +628,8 @@ a:hover .headline {
 .scrollbar-hide { scrollbar-width: none; }
 
 ::selection {
-  background: #fbd9de;
-  color: #0f1419;
+  background: #cfe3f1;
+  color: #121212;
 }
 
 a:focus-visible,

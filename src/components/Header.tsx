@@ -163,7 +163,7 @@ export default function Header() {
             />
             <button
               type="submit"
-              className="mr-1 shrink-0 rounded-full px-3 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.1em] text-[color:var(--text-secondary)] transition-colors hover:bg-[color:var(--accent)] hover:text-white"
+              className="mr-1 shrink-0 px-3 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.1em] text-[color:var(--text-secondary)] transition-colors hover:bg-[color:var(--accent)] hover:text-white"
             >
               Search
             </button>

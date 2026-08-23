@@ -138,7 +138,8 @@ const MARK = {
   large: { letter: 0.48, cy: 0.435, ruleX: 0.2, ruleY: 0.735, ruleH: 0.075 },
   small: { letter: 0.54, cy: 0.425, ruleX: 0.17, ruleY: 0.74, ruleH: 0.1 },
 }
-const RADIUS_RATIO = 0.13
+/* Square tile: the 2018 broadsheet design uses no rounded corners anywhere. */
+const RADIUS_RATIO = 0
 
 /** Tile, monogram and rule as bare markup, ready to inline at any size. */
 function markBody({ size, small = false, field, letter, rule, radiusRatio = RADIUS_RATIO }) {
