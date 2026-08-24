@@ -151,40 +151,6 @@ export interface Article {
 }
 
 export const articles: Article[] = [
-
-  {
-    id: '98437364',
-    title:
-      'Man Detained After Allegedly Using Live Sheep on Ladder to Collect Donations in European City',
-    summary:
-      'Pedestrians in a busy European city center called authorities after a man reportedly placed a live sheep on a wooden ladder beside a “DONATIONS — THANK YOU” sign. He was detained; the animal was removed unharmed.',
-    body: [
-      'EUROPE — A bizarre scene in a busy European city center drew the attention of pedestrians and authorities on Monday after a man allegedly placed a live sheep on top of a wooden ladder as part of an unusual attempt to collect donations from passersby.',
-      {
-        type: 'image',
-        src: sheepLadderDonationsImage,
-        caption:
-          'A live sheep was reportedly standing on a wooden ladder beside a donation jar in a European city center before authorities intervened.',
-        alt: 'A sheep standing on a wooden ladder in a public street',
-      },
-      'Witnesses said the sheep was standing several feet above the pavement on a wooden ladder while a handwritten sign reading “DONATIONS — THANK YOU” was placed beside it. A small donation jar was reportedly positioned nearby for people to leave money.',
-      'Photos of the unusual setup quickly began circulating online, with many people questioning whether the animal was safe and how it had been placed on the ladder in the first place.',
-      { type: 'heading', text: 'Authorities order sheep removed' },
-      'Local authorities were eventually called to the scene after concerned pedestrians reported the incident. Officers reportedly ordered the owner to remove the sheep from the ladder and questioned him about the way the animal was being used to solicit money.',
-      'According to preliminary reports, the man was detained and is expected to face questioning over possible animal-welfare violations and unauthorized collection of donations in a public area.',
-      'The sheep was safely removed from the ladder and appeared to be unharmed.',
-      'Officials have not yet released the identity of the person involved or confirmed what charges, if any, will ultimately be filed.',
-      { type: 'heading', text: 'Online reaction splits between amusement and outrage' },
-      'The strange incident has already sparked discussion online, with some users describing the scene as funny and surreal, while others argued that using a live animal in such a situation crossed the line.',
-    ],
-    category: 'World',
-    time: '20:00',
-    section: 'hot',
-    image: sheepLadderDonationsImage,
-    byline: 'Alma Shriq News World Desk',
-    date: '2026-08-24',
-  },
-
   {
     id: '98437360',
     title:
