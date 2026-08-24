@@ -10,15 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         asn: {
-          ink: '#121212',
+          ink: '#111111',
           'ink-2': '#1c1c1c',
           red: '#c8102e',
-          blue: '#005689',
-          'blue-dark': '#003d61',
+          'red-deep': '#9c0a22',
           paper: '#ffffff',
-          mist: '#f5f5f5',
-          hairline: '#dcdcdc',
-          slate: '#4a4a4a',
+          mist: '#f4f4f4',
+          hairline: '#d8d8d8',
+          slate: '#444444',
           muted: '#6e6e6e',
         },
       },

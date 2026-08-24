@@ -112,6 +112,18 @@ const floodlitPitchImage =
   'https://images.unsplash.com/photo-1487466365202-1afdb86c764e?w=1600&q=80&auto=format&fit=crop'
 const giantsPreseasonImage =
   'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=1600&q=80&auto=format&fit=crop'
+const courthouseGavelImage =
+  'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80&auto=format&fit=crop'
+const scrambledEggsImage =
+  'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1600&q=80&auto=format&fit=crop'
+const restaurantInteriorImage =
+  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop'
+const groceryAisleImage =
+  'https://images.unsplash.com/photo-1542838132-92c53300491e?w=1600&q=80&auto=format&fit=crop'
+const bodegaShelvesImage =
+  'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=1600&q=80&auto=format&fit=crop'
+const basketballArenaImage =
+  'https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=1600&q=80&auto=format&fit=crop'
 
 export type ArticleImage = string | StaticImageData
 
@@ -138,6 +150,162 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+
+  {
+    id: '98437360',
+    title:
+      '49ers Owner Jed York Pleads No Contest After $140 Prostitution Sting at Ohio Trailer Park',
+    summary:
+      'Court records show the 46-year-old NFL owner answered an online ad, agreed to pay $140 for sex and was arrested by a human-trafficking task force in East Palestine, Ohio. He cut a plea deal a day later and was fined $1,150.',
+    body: [
+      'San Francisco 49ers owner Jed York was arrested at an Ohio trailer park on Sunday after allegedly agreeing to pay a woman $140 for sex, and by Monday he had already resolved the case with a plea deal, court records show.',
+      'According to documents filed in Columbiana County Municipal Court, York responded to an advertisement on a website known for prostitution listings and arranged a paid sexual encounter. The meeting point was a trailer park in East Palestine, the small town near the Pennsylvania line best known for the 2023 train derailment.',
+      {
+        type: 'image',
+        src: courthouseGavelImage,
+        caption:
+          'Illustrative: a courtroom gavel. York entered his plea in Columbiana County Municipal Court on Monday, a day after his arrest.',
+        alt: 'A wooden judge’s gavel resting on a desk',
+      },
+      'When York arrived, an agent with the Mahoning Valley Human Trafficking Task Force took him into custody. The filings note that he was carrying the cellphone investigators say he used to set up the meeting, which formed the basis of a second charge.',
+      'He was booked into the county jail on one count of engaging in prostitution and one count of possessing criminal tools.',
+      { type: 'heading', text: 'A one-day sentence and $1,150 in fines' },
+      'On Monday, York pleaded no contest to a reduced charge of disorderly conduct along with the criminal-tools count, according to the court records. He was sentenced to a single day in jail, credited as already served, and ordered to pay $1,150 in fines. A filing from his attorney states that he also completed an online course.',
+      'York, 46, grew up in Youngstown, Ohio, roughly half an hour from where he was arrested. He has run the 49ers as chief executive since 2008, when control of the franchise passed to the York family’s younger generation. He and his wife, Danielle Belluomini York, have been married for more than a decade and have two sons.',
+      'The 49ers have not commented on the arrest. The team played the Chargers in Los Angeles in an exhibition game on Aug. 20 and closes its preseason against the Raiders in Las Vegas on Aug. 27.',
+      'Reporting in this story is based on Columbiana County court records first obtained and reported by the New York Post. The photograph is a stock file image, not a photograph of the events described.',
+    ],
+    category: 'Sports',
+    time: '14:05',
+    section: 'sports',
+    image: courthouseGavelImage,
+    byline: 'Alma Shriq News Sports Desk',
+    date: '2026-08-24',
+  },
+
+  {
+    id: '98437361',
+    title:
+      'Immigrant Grocers Sue Mamdani Over City-Owned Supermarkets, Comparing Plan to a Walmart Invasion',
+    summary:
+      'A coalition of 50 ethnic chambers of commerce filed two lawsuits Monday arguing the mayor’s five taxpayer-funded stores, with prices pledged at 30% below market, would crush minority-owned bodegas the way Walmart was long feared to.',
+    body: [
+      'A coalition of immigrant grocery and bodega owners sued Mayor Zohran Mamdani on Monday over his plan to open five government-owned supermarkets, arguing the taxpayer-funded stores would do to minority-owned food retailers what New York politicians spent decades warning Walmart would do.',
+      'The Multicultural Business Coalition, an umbrella group of 50 chambers of commerce representing ethnically diverse business owners, filed two cases in state court. One is a seven-page class action brought on behalf of what it describes as hundreds of store owners from groups that have historically faced discrimination, alleging the municipal stores would violate their civil rights.',
+      {
+        type: 'image',
+        src: groceryAisleImage,
+        caption:
+          'Illustrative: a produce aisle at a neighborhood grocery. The city has pledged its five municipal stores will sell staples at 30% below market rates.',
+        alt: 'Rows of fresh produce inside a small grocery store',
+      },
+      'The second, a 13-page petition in state Supreme Court, leans on a comparison New Yorkers will recognize: Walmart, which tried repeatedly to open in the five boroughs and was beaten back each time by politicians and unions warning it would wipe out small businesses.',
+      'The city stores have pledged to sell food roughly 30% below market rates — a discount the filing says rivals or exceeds Walmart’s. The suit argues the plan amounts to letting a deep-discount operator into the city under the banner of affordability, at the direct expense of minority-owned and small businesses.',
+      { type: 'heading', text: '“A direct assault on minority business”' },
+      'The petition also accuses City Hall of skipping a proper review before announcing the sites in July, including any land-use study of how the stores would affect existing groceries nearby, and asks the court to force the city to conduct an economic analysis.',
+      '“Make no mistake about this plan,” said Ken Roldan, the coalition’s president. “It is a direct assault on minority business by a mayor who claims to be a champion of disenfranchised poor and working-class New Yorkers.”',
+      'The group’s chairman, Frank Garcia, invoked his grandfather, who opened one of East Harlem’s early bodegas in the late 1960s as larger chains abandoned the neighborhood, and founded an association to defend immigrant store owners. What the mayor is doing, Garcia said, disgraces that memory.',
+      {
+        type: 'image',
+        src: bodegaShelvesImage,
+        caption:
+          'Illustrative: stocked shelves at a corner store. The coalition says bodega ownership has passed through waves of Puerto Rican, Dominican, Arab, Korean, Chinese and Mexican immigrants.',
+        alt: 'Densely stocked shelves inside a small corner grocery store',
+      },
+      'Jairo Guzman, who leads the New York State Mexican Chamber of Commerce, called food retail “New York City’s great mosaic,” built by successive waves of Puerto Rican, Dominican, Arab, Korean, Chinese and Mexican owners, and urged the mayor to withdraw the plan and work with the industry instead.',
+      { type: 'heading', text: 'The $70 million plan' },
+      'The five stores are projected to cost taxpayers $70 million to build. City Hall says the 30% markdown on staples like produce, meat, milk, cheese and bread will save shoppers an average of $90 a month, or about $1,000 a year.',
+      'The first two locations announced are La Marqueta in East Harlem and the former Spofford juvenile detention site at Hunts Point in the Bronx. Locations for Brooklyn, Queens and Staten Island have not been disclosed.',
+      'The suits do not yet name individual plaintiffs; Roldan said the first will be identified at a press conference this week and added to the filings. He also said some owners fear the administration will retaliate through permit and license inspections — and that the coalition will publicize any such cases.',
+      'Reporting in this story is based on the court filings and on coverage by the New York Post, which first reported the lawsuits. The photographs are stock file images, not photographs of the businesses involved.',
+    ],
+    category: 'Business',
+    time: '13:30',
+    section: 'finance',
+    image: groceryAisleImage,
+    byline: 'Alma Shriq News Business Desk',
+    date: '2026-08-24',
+  },
+
+  {
+    id: '98437362',
+    title:
+      'Enes Kanter Freedom Gives His Version of Courtside Clash With Natasha Cloud That Got Him Ejected',
+    summary:
+      'The former NBA center says the Sky guard accused him of trying to “sleep with” Sophie Cunningham after he celebrated a three-pointer, before security walked him out of Wintrust Arena without explanation.',
+    body: [
+      'Enes Kanter Freedom has offered his account of the courtside confrontation with Chicago Sky guard Natasha Cloud that ended with security escorting him out of Wintrust Arena during Sunday night’s Sky-Fever game.',
+      'The former NBA center told Fox News he was in Chicago as a fan, enjoying the game with friends, when things turned late in the third quarter after Indiana’s Sophie Cunningham hit a three-pointer.',
+      {
+        type: 'image',
+        src: basketballArenaImage,
+        caption:
+          'Illustrative: a professional basketball arena. The confrontation unfolded courtside at Wintrust Arena late in the third quarter Sunday.',
+        alt: 'A basketball arena court seen from the seats under bright lights',
+      },
+      'Freedom said he raised his arms to celebrate the shot, and that a few possessions later Cloud came toward him shouting. By his telling, she yelled, “She’s not going to sleep with you” — to which he says he responded that he was not trying to sleep with anyone and was “just here to protect women.”',
+      'He said he was shocked by the language Cloud used with young fans sitting nearby, saying he could not believe the profanity given how many kids in Chicago look up to her.',
+      { type: 'heading', text: 'Walked out without a reason, he says' },
+      'Freedom said security then told him he had to leave, declined to say why, and all but pushed him out of the building. He said he told police officers afterward that he had only been there to “protect women.”',
+      'Cloud did not address the exchange directly, but posted a message on Threads on Sunday night telling trans people they belong, are loved, and “will always be protected by me.”',
+      'Sky coach Tyler Marsh backed his guard after Chicago’s 113-90 loss to the Fever. “We all embrace her as someone that protects our team, and protects people that need to be protected,” he said. “Tash is always gonna stand on that, and we stand for Tash.”',
+      { type: 'heading', text: 'A month of escalating provocation' },
+      'The run-in is the latest turn in a controversy Freedom has been stoking for weeks. After Cunningham said in an ESPN feature that she wants to “protect young girls” from “biological men” in sports, Freedom filmed himself signing a document declaring for the 2027 WNBA draft.',
+      'Last week he escalated further, claiming he had spoken with eight men about entering the draft if the league does not clarify its eligibility rules, and contrasting the G League’s $45,000 salaries with the $1.4 million earned by top WNBA players.',
+      'The WNBA’s anti-hate task force met this month and said it found no immediate eligibility matters affecting the league. “We strongly denounce the bad-faith efforts to use these topics to demean or marginalize others,” a league spokesperson said.',
+      'TMZ had reported before tipoff that Freedom planned to attend the game.',
+      'Reporting in this story is based on Freedom’s Fox News interview and coverage by the New York Post. The photograph is a stock file image, not a photograph of the incident described.',
+    ],
+    category: 'Sports',
+    time: '12:15',
+    section: 'sports',
+    image: basketballArenaImage,
+    byline: 'Alma Shriq News Sports Desk',
+    date: '2026-08-24',
+  },
+
+  {
+    id: '98437363',
+    title:
+      'Tourist Finds “Burn the Eggs and Spit in Them” Printed on Her Bill at Italian Restaurant',
+    summary:
+      'A Brazilian visitor who asked for her scrambled eggs a little more cooked discovered the kitchen instruction on her receipt. The restaurant apologized — then its owner appeared to joke about the episode on TikTok.',
+    body: [
+      'A Brazilian tourist dining on the Adriatic coast of Italy says her breakfast came with an instruction she was never meant to see: a note on the bill telling the chef to burn her eggs and spit in them.',
+      '“I’m still in shock, I can’t believe this happened to me,” the woman, who gave her name only as Maria Clara, told local media.',
+      {
+        type: 'image',
+        src: scrambledEggsImage,
+        caption:
+          'Illustrative: a plate of scrambled eggs. The dispute began when the diner asked for her order a little more cooked.',
+        alt: 'A breakfast plate with scrambled eggs on a table',
+      },
+      'Clara was visiting the Victor Lab restaurant on Viale Ceccarini in Italy’s Romagna region with her family on Aug. 19, according to the local outlet La Voce di Cesenatico. She ordered scrambled eggs, juice and coffee, and found the eggs runnier than she liked.',
+      'When she politely asked for them a little more cooked, she says the server scoffed that the kitchen doesn’t serve raw eggs. The plate came back still soft, and with a side salad she had asked them to leave off. “I let it go because I didn’t want to argue,” she recalled.',
+      { type: 'heading', text: 'The message on the receipt' },
+      'It was only when the bill arrived that she saw the kitchen ticket’s printed instruction — an annoyed note telling the chef to burn the eggs and spit in them. She photographed it and included it in a one-star Google review.',
+      'Clara said she first took it for a joke, but the family grew frightened at the thought their food might actually have been tampered with and confronted the managers.',
+      {
+        type: 'image',
+        src: restaurantInteriorImage,
+        caption:
+          'Illustrative: a restaurant dining room. The server responsible, a 17-year-old employed for a few weeks, reportedly went pale when confronted.',
+        alt: 'Empty tables and chairs inside a modern restaurant',
+      },
+      'The culprit turned out to be a 17-year-old server who had been on the job only a few weeks. Clara says he went white, grew visibly nervous, and apologized, insisting the note was an inside joke with the chef. When he tried to throw the receipt away, she warned him she would call the police.',
+      { type: 'heading', text: 'An apology, then a TikTok' },
+      'The restaurant later apologized beneath her review, calling the behavior “absolutely inappropriate” and saying it in no way reflects the values and professional standards the business works to uphold. The server’s youth and brief tenure, management added, “does not diminish the gravity of what happened.”',
+      'The contrition was undercut days later when the restaurant’s TikTok account posted a video in which the owner played a demanding customer ordering a dish with “spit” — complete with a poll asking followers whether the teenage server should be fired.',
+      '“Sometimes it almost makes you laugh when you watch it, but this isn’t a laughing matter. It’s serious,” said Clara, who asked that her surname be withheld after receiving death threats and racist abuse online.',
+      'Reporting in this story is based on coverage by La Voce di Cesenatico and the New York Post. The photographs are stock file images, not photographs of the restaurant or meal described.',
+    ],
+    category: 'Lifestyle',
+    time: '11:40',
+    section: 'culture',
+    image: scrambledEggsImage,
+    byline: 'Alma Shriq News Culture Desk',
+    date: '2026-08-24',
+  },
 
   {
     id: '98437356',
@@ -1286,30 +1454,32 @@ export const articles: Article[] = [
   {
     id: '98437328',
     title:
-      'Lindsay Clancy murder trial: Live updates on Massachusetts mom who strangled her 3 kids',
+      'Lindsay Clancy Trial Nears Its End as Prosecution Experts Push Back on Psychosis Defense',
     summary:
-      'Jurors weighing whether Lindsay Clancy is criminally responsible for killing her three young children are being bused to the family’s Duxbury home and the errands her husband ran the night of the killings.',
+      'In the fifth week of the Massachusetts murder trial, a forensic psychologist told jurors Clancy’s dark thoughts were her own inner voice rather than hallucinations — and that she now suffers PTSD from killing her children. Closing arguments could begin within days.',
     body: [
       'Editor’s note: Coverage of this case is disturbing. Scroll with discretion.',
-      'Jurors who will decide whether Massachusetts mom Lindsay Clancy is guilty of murder for strangling her three young children while postpartum are set to visit the family’s Duxbury home Friday, where the unfathomable act took place.',
-      'Clancy, 35, a labor and delivery nurse, is charged with three counts of murder and faces life in prison without parole if convicted.',
-      'Defense lawyers have argued the mother is not criminally responsible for killing Cora, 5, Dawson, 3, and Callan, 8 months, in January 2023, because she was suffering from postpartum psychosis exacerbated by a dangerous cocktail of 15 psychiatric medications at the time, despite seeking mental health treatment for months.',
-      { type: 'heading', text: 'Jury to retrace the family’s final night' },
-      'The jury overseeing Lindsay Clancy’s murder trial is going to be taken to the same stops that husband Patrick Clancy made before returning home to find his kids dead.',
-      'Lindsay sent Patrick out on two errands on the evening of Jan. 24, 2023, during which time she strangled their three young kids with elastic workout bands.',
-      'The jury will be taken on a bus to the CVS Patrick picked up a medication from and the restaurant where he picked up take-out food from, ThreeV.',
-      'Then the panel will be taken to the Duxbury home where the killings occurred. The house is currently owned by a lawyer.',
-      'Judge William Sullivan explained to the jurors Friday morning that they will be taken into the house in groups of six.',
-      '“You’re about to visit and go by a number of places you’ve heard about at trial,” Sullivan said.',
-      'This is so they can “better understand the evidence and to help you appreciate the location and the surroundings about these different areas.”',
-      'After the viewings the panelists will return to court for additional testimony, the judge said.',
+      'PLYMOUTH, Mass. — Lindsay Clancy’s murder trial entered its fifth and likely final week Monday, with prosecutors working to dismantle the defense claim that severe postpartum psychosis drove her to strangle her three young children.',
+      'Closing arguments could come as early as this week, with jury deliberations potentially following. Clancy, 36, a former labor and delivery nurse from Duxbury, is charged with murdering Cora, 5, Dawson, 3, and Callan, 8 months, in January 2023.',
+      'Her lawyer, Kevin Reddington, argues she should not be held criminally responsible because she was in the grip of postpartum psychosis and hearing voices at the time. The state is now presenting rebuttal experts to counter that account.',
+      { type: 'heading', text: 'Rebuttal experts take the stand' },
+      'Psychiatrist Dr. Avram Mack, the first rebuttal witness, testified that Clancy was not suffering from psychosis and understood that what she was doing was wrong. On Monday morning, Reddington cross-examined Mack, working to undercut his qualifications to opine on criminal responsibility.',
+      'The second rebuttal witness, forensic psychologist Dr. Kirk Heilbrun, told jurors he diagnosed Clancy with post-traumatic stress disorder — stemming from the killings themselves — along with bipolar II disorder, a milder form of the illness.',
+      'Heilbrun said reaching a diagnosis was complicated by the many conflicting labels other clinicians had applied over the years. Hospital records from the three years since her arrest showed depressive episodes but little evidence of mania, he said, and her positive response to bipolar medications helped settle his conclusion.',
+      { type: 'heading', text: 'An inner voice, not a hallucination' },
+      'Heilbrun, who interviewed Clancy in April, described the “horrible intrusive thoughts” she reported beginning in late November and early December 2022 — a dark inner voice telling her that her brain was damaged, that she should kill herself, and at times that she should harm her children.',
+      'The crucial distinction, he testified, is that Clancy experienced those thoughts as her own internal voice rather than an external one — which would have suggested hallucination and psychosis. The only time she described hearing an external, male voice, he noted, was on Jan. 24, 2023, the day of the killings.',
+      'The defense will have the chance to cross-examine Heilbrun when the prosecution finishes its questioning, with Judge William Sullivan telling jurors testimony would resume after the lunch break.',
+      { type: 'heading', text: 'Crowds line up in pink' },
+      'Interest in the case has not faded: roughly 60 people, most of them women dressed in pink, queued outside the courtroom Monday hoping for one of the five rows of gallery seats.',
+      'Reporting in this story is based on courtroom testimony as covered by the New York Post. The photograph is a file image from earlier in the proceedings.',
     ],
     category: 'Crime',
     time: '13:50',
     section: 'live',
     image: '/images/np-lindsay-clancy-trial.jpg',
     byline: 'Alma Shriq News Crime Desk',
-    date: '2026-07-31',
+    date: '2026-08-24',
   },
 
   {

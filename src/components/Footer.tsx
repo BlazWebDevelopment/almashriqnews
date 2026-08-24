@@ -71,7 +71,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-9 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-4">
             <Link href="/" className="mb-4 flex items-center gap-3">
-              <BrandMark size={40} tone="inverse" />
+              <BrandMark size={40} />
               <span className="flex flex-col text-white">
                 <Wordmark className="text-[1.35rem] leading-none" />
                 <span className="st-eyebrow mt-1.5 text-[color:var(--on-ink-muted)]">

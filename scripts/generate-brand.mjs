@@ -7,6 +7,10 @@
 //         public/favicon.ico, public/og-image.png, public/wordmark.svg,
 //         public/site.webmanifest, src/lib/brand-mark.ts
 //
+// The mark is a flat red medallion — a white rising sun and horizon inside a
+// thin white ring — in the New York Post tradition of a loud red badge.
+// "Al Mashriq" is the East, the place of sunrise, so the symbol is the name.
+//
 // Glyphs are converted to vector paths rather than left as <text>, so the
 // wordmark and monogram render identically in browsers, rasterisers and
 // anywhere the SVG is used without the webfont loaded.
@@ -25,14 +29,13 @@ const publicDir = resolve(root, 'public')
 const cacheDir = resolve(__dirname, '.cache')
 
 const FONT_URL =
-  'https://cdn.jsdelivr.net/npm/@fontsource/libre-franklin@4.5.11/files/libre-franklin-latin-800-normal.woff'
-const FONT_CACHE = resolve(cacheDir, 'libre-franklin-800.woff')
+  'https://cdn.jsdelivr.net/npm/@fontsource/libre-franklin@4.5.11/files/libre-franklin-latin-900-normal.woff'
+const FONT_CACHE = resolve(cacheDir, 'libre-franklin-900.woff')
 
 const RED = '#c8102e'
-const INK = '#0f1419'
+const RED_DEEP = '#9c0a22'
+const INK = '#111111'
 const PAPER = '#ffffff'
-const HAIRLINE = '#dfe3e9'
-const MUTED = '#6b7480'
 
 const NAME = 'ALMA SHRIQ NEWS'
 const TAGLINE = 'INDEPENDENT REPORTING \u00b7 UPDATED HOURLY'
@@ -125,34 +128,34 @@ function glyphPath(font, text, { height, width, cx, cy, letterSpacing = 0 }) {
 const font = await loadFont()
 
 /* ------------------------------------------------------------------
-   1. The mark — a red sun rising over a paper horizon rule, on a
-   rounded ink tile. "Al Mashriq" is the East, the place of sunrise,
-   so the symbol is the name.
+   1. The mark — a red medallion. White sun rising over a white
+   horizon rule, five tapered rays, all held inside a thin white
+   ring on a flat red disc.
 
-   Geometry is expressed as fractions of the tile so every size is the
-   same drawing. The large mark carries five tapered rays; below ~64px
-   the rays vanish into pixels, so the small variant drops them, grows
-   the sun and thickens the horizon.
+   Geometry is expressed as fractions of the grid so every size is
+   the same drawing. Below ~64px the ring and rays vanish into
+   pixels, so the small variant drops them, grows the sun and
+   thickens the horizon.
    ------------------------------------------------------------------ */
 
 const MARK = {
   large: {
-    sunR: 0.26,
-    horizonY: 0.635,
-    horizonX: 0.14,
-    horizonH: 0.03,
-    rays: { inner: 0.335, outer: 0.42, halfIn: 4.5, halfOut: 2.25 },
+    ring: { r: 0.425, stroke: 0.026 },
+    sunR: 0.2,
+    horizonY: 0.585,
+    horizonHalf: 0.365,
+    horizonH: 0.027,
+    rays: { inner: 0.27, outer: 0.375, halfIn: 5, halfOut: 2.5 },
   },
   small: {
-    sunR: 0.32,
+    ring: null,
+    sunR: 0.3,
     horizonY: 0.6,
-    horizonX: 0.08,
-    horizonH: 0.075,
+    horizonHalf: 0.39,
+    horizonH: 0.07,
     rays: null,
   },
 }
-/* Rounded tile: reads as a modern app mark instead of a stamp. */
-const RADIUS_RATIO = 0.1875
 
 const RAY_ANGLES = [157.5, 123.75, 90, 56.25, 22.5]
 
@@ -164,7 +167,7 @@ function rayPath(cx, cy, angleDeg, r1, r2, halfIn, halfOut) {
   return `M${pt(r1, angleDeg - halfIn)}L${pt(r2, angleDeg - halfOut)}L${pt(r2, angleDeg + halfOut)}L${pt(r1, angleDeg + halfIn)}Z`
 }
 
-/** Sun disc plus rays as one path, on a `size`-unit grid. */
+/** Sun half-disc plus rays as one path, on a `size`-unit grid. */
 function sunPath(size, m) {
   const cx = size / 2
   const cy = size * m.horizonY
@@ -179,55 +182,52 @@ function sunPath(size, m) {
   return d
 }
 
-/** Tile, sun and horizon as bare markup, ready to inline at any size. */
-function markBody({ size, small = false, field, horizon, sun, radiusRatio = RADIUS_RATIO }) {
-  const m = small ? MARK.small : MARK.large
+/** Horizon bar geometry on a `size`-unit grid. */
+function horizonRect(size, m) {
   const n = (v) => Number(v.toFixed(2))
-  const r = n(size * radiusRatio)
-  return [
-    `<rect width="${size}" height="${size}" rx="${r}" ry="${r}" fill="${field}"/>`,
-    `<path d="${sunPath(size, m)}" fill="${sun}"/>`,
-    `<rect class="h" x="${n(size * m.horizonX)}" y="${n(size * m.horizonY)}" width="${n(size * (1 - 2 * m.horizonX))}" height="${n(size * m.horizonH)}" fill="${horizon}"/>`,
-  ].join('\n  ')
+  return {
+    x: n(size / 2 - size * m.horizonHalf),
+    y: n(size * m.horizonY),
+    width: n(size * m.horizonHalf * 2),
+    height: n(size * m.horizonH),
+  }
 }
 
-function markSvg({
-  size,
-  small = false,
-  field = INK,
-  horizon = PAPER,
-  sun = RED,
-  radiusRatio = RADIUS_RATIO,
-  style = '',
-}) {
+/** Disc, ring, sun and horizon as bare markup, ready to inline at any size. */
+function markBody({ size, small = false, field = RED, detail = PAPER, square = false }) {
+  const m = small ? MARK.small : MARK.large
+  const n = (v) => Number(v.toFixed(2))
+  const h = horizonRect(size, m)
+  const parts = []
+  if (square) {
+    parts.push(`<rect width="${size}" height="${size}" fill="${field}"/>`)
+  } else {
+    parts.push(`<circle cx="${n(size / 2)}" cy="${n(size / 2)}" r="${n(size / 2)}" fill="${field}"/>`)
+  }
+  if (m.ring) {
+    parts.push(
+      `<circle cx="${n(size / 2)}" cy="${n(size / 2)}" r="${n(size * m.ring.r)}" fill="none" stroke="${detail}" stroke-width="${n(size * m.ring.stroke)}"/>`
+    )
+  }
+  parts.push(`<path d="${sunPath(size, m)}" fill="${detail}"/>`)
+  parts.push(
+    `<rect x="${h.x}" y="${h.y}" width="${h.width}" height="${h.height}" fill="${detail}"/>`
+  )
+  return parts.join('\n  ')
+}
+
+function markSvg({ size, small = false, field = RED, detail = PAPER, square = false }) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${NAME}">
-  ${style}${markBody({ size, small, field, horizon, sun, radiusRatio })}
+  ${markBody({ size, small, field, detail, square })}
 </svg>
 `
 }
 
 const logoSvg = markSvg({ size: 512 })
 
-/*
- * The SVG favicon flips to a paper tile in dark chrome: an ink tile on a dark
- * tab strip loses its edges. Rasterisers ignore the media query and keep the
- * light drawing, which is exactly what the .ico wants.
- */
-const faviconSvg = markSvg({
-  size: 64,
-  small: true,
-  field: 'currentColor',
-  horizon: PAPER,
-  sun: RED,
-  style: `<style>
-    svg { color: ${INK} }
-    @media (prefers-color-scheme: dark) { svg { color: ${PAPER} } .h { fill: ${INK} } }
-  </style>
-  `,
-})
-
-/* Same drawing with flat fills, for anything that rasterises. */
-const faviconRasterSvg = markSvg({ size: 64, small: true })
+/* The red disc holds its own on light and dark chrome, so one drawing
+   serves every favicon. */
+const faviconSvg = markSvg({ size: 64, small: true })
 
 await writeFile(resolve(publicDir, 'logo.svg'), logoSvg)
 console.log('Wrote public/logo.svg')
@@ -243,7 +243,7 @@ await writeFile(resolve(publicDir, 'logo.png'), logoPng)
 console.log('Wrote public/logo.png')
 
 /* iOS rounds the home-screen icon itself, so this one ships square. */
-const appleSvg = markSvg({ size: 180, radiusRatio: 0 })
+const appleSvg = markSvg({ size: 180, square: true })
 const applePng = await sharp(Buffer.from(appleSvg)).resize(180, 180).png().toBuffer()
 await writeFile(resolve(publicDir, 'apple-icon.png'), applePng)
 console.log('Wrote public/apple-icon.png')
@@ -257,7 +257,7 @@ for (const size of [192, 512]) {
 const icoSizes = [16, 32, 48, 64]
 const icoPngs = await Promise.all(
   icoSizes.map((size) =>
-    sharp(Buffer.from(faviconRasterSvg)).resize(size, size).png().toBuffer()
+    sharp(Buffer.from(faviconSvg)).resize(size, size).png().toBuffer()
   )
 )
 const ico = await pngToIco(icoPngs)
@@ -265,45 +265,46 @@ await writeFile(resolve(publicDir, 'favicon.ico'), ico)
 console.log(`Wrote public/favicon.ico (${ico.length} bytes) sizes: ${icoSizes.join(', ')}`)
 
 /* ------------------------------------------------------------------
-   3. Social card — the lockup on paper, between brand rules.
+   3. Social card — the medallion and white wordmark on a full red
+   field, front-page style.
    ------------------------------------------------------------------ */
 
 const OG_W = 1200
 const OG_H = 630
-const TILE = 132
+const MEDAL = 148
 const ogWordmark = glyphPath(font, NAME, {
-  width: 960,
-  height: 96,
+  width: 980,
+  height: 100,
   cx: OG_W / 2,
-  cy: 360,
-  letterSpacing: -0.018,
+  cy: 372,
+  letterSpacing: -0.03,
 })
 const ogTagline = glyphPath(font, TAGLINE, {
-  width: 700,
-  height: 20,
+  width: 660,
+  height: 19,
   cx: OG_W / 2,
-  cy: 455,
+  cy: 468,
   letterSpacing: 0.14,
 })
 const ogSections = glyphPath(font, SECTIONS, {
-  width: 820,
-  height: 20,
+  width: 780,
+  height: 19,
   cx: OG_W / 2,
-  cy: 540,
+  cy: 552,
   letterSpacing: 0.12,
 })
 
 const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG_W}" height="${OG_H}" viewBox="0 0 ${OG_W} ${OG_H}">
-  <rect width="${OG_W}" height="${OG_H}" fill="${PAPER}"/>
-  <rect x="0" y="0" width="${OG_W}" height="14" fill="${RED}"/>
-  <rect x="0" y="${OG_H - 14}" width="${OG_W}" height="14" fill="${INK}"/>
-  <g transform="translate(${(OG_W - TILE) / 2},${196 - TILE / 2})">
-  ${markBody({ size: TILE, field: INK, horizon: PAPER, sun: RED })}
+  <rect width="${OG_W}" height="${OG_H}" fill="${RED}"/>
+  <rect x="0" y="0" width="${OG_W}" height="12" fill="${INK}"/>
+  <rect x="0" y="${OG_H - 12}" width="${OG_W}" height="12" fill="${INK}"/>
+  <g transform="translate(${(OG_W - MEDAL) / 2},${188 - MEDAL / 2})">
+  ${markBody({ size: MEDAL, field: RED_DEEP, detail: PAPER })}
   </g>
-  <path d="${ogWordmark.d}" fill="${INK}"/>
-  <rect x="290" y="${492}" width="${OG_W - 580}" height="1" fill="${HAIRLINE}"/>
-  <path d="${ogTagline.d}" fill="${MUTED}"/>
-  <path d="${ogSections.d}" fill="${RED}"/>
+  <path d="${ogWordmark.d}" fill="${PAPER}"/>
+  <rect x="300" y="${506}" width="${OG_W - 600}" height="2" fill="${RED_DEEP}"/>
+  <path d="${ogTagline.d}" fill="#f3c9d0"/>
+  <path d="${ogSections.d}" fill="${PAPER}"/>
 </svg>
 `
 
@@ -322,7 +323,7 @@ const flat = glyphPath(font, NAME, {
   height: markH - 34,
   cx: markW / 2,
   cy: markH / 2,
-  letterSpacing: -0.018,
+  letterSpacing: -0.03,
 })
 await writeFile(
   resolve(publicDir, 'wordmark.svg'),
@@ -362,28 +363,32 @@ await writeFile(
 console.log('Wrote public/site.webmanifest')
 
 /* ------------------------------------------------------------------
-   6. Mark geometry for the app, so the header tile is the same drawing
-   as public/logo.svg without costing a request. The outlines live here
-   rather than in the component because they come out of the font.
+   6. Mark geometry for the app, so the header medallion is the same
+   drawing as public/logo.svg without costing a request.
    ------------------------------------------------------------------ */
 
 const G = 512
 const n = (v) => Number(v.toFixed(2))
+const gh = horizonRect(G, MARK.large)
 await writeFile(
   resolve(root, 'src/lib/brand-mark.ts'),
   `// Generated by scripts/generate-brand.mjs — run \`npm run brand\` to update.
 //
-// The rising sun over its horizon rule, on a ${G}-unit grid. Drawn inline by
-// <BrandMark> so the masthead tile matches public/logo.svg exactly.
+// The red medallion: white rising sun, horizon rule and thin ring on a
+// ${G}-unit grid. Drawn inline by <BrandMark> so the masthead medallion
+// matches public/logo.svg exactly.
 export const MARK_GRID = ${G}
-export const MARK_RADIUS = ${n(G * RADIUS_RATIO)}
+export const MARK_RING = {
+  r: ${n(G * MARK.large.ring.r)},
+  stroke: ${n(G * MARK.large.ring.stroke)},
+}
 export const MARK_SUN =
   '${sunPath(G, MARK.large)}'
 export const MARK_HORIZON = {
-  x: ${n(G * MARK.large.horizonX)},
-  y: ${n(G * MARK.large.horizonY)},
-  width: ${n(G * (1 - 2 * MARK.large.horizonX))},
-  height: ${n(G * MARK.large.horizonH)},
+  x: ${gh.x},
+  y: ${gh.y},
+  width: ${gh.width},
+  height: ${gh.height},
 }
 `
 )

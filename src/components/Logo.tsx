@@ -1,23 +1,24 @@
 import { SITE_NAME } from '@/lib/brand'
-import { MARK_GRID, MARK_HORIZON, MARK_RADIUS, MARK_SUN } from '@/lib/brand-mark'
+import { MARK_GRID, MARK_HORIZON, MARK_RING, MARK_SUN } from '@/lib/brand-mark'
 
 /**
- * The house mark: the red mashriq sun rising over a horizon rule, on a
- * rounded ink tile. Drawn inline from the same geometry as `public/logo.svg`
- * so the masthead, the favicon and the social card are one drawing at no
- * extra request. `tone="inverse"` reverses the tile for the dark footer slab.
+ * The house mark: a red medallion — white rising sun, horizon rule and thin
+ * ring on a flat red disc. Drawn inline from the same geometry as
+ * `public/logo.svg` so the masthead, the favicon and the social card are one
+ * drawing at no extra request. `tone="onRed"` deepens the disc so the
+ * medallion still reads when it sits on the red masthead slab.
  */
 export function BrandMark({
   size = 40,
-  tone = 'ink',
+  tone = 'brand',
   className = '',
 }: {
   size?: number
-  tone?: 'ink' | 'inverse'
+  tone?: 'brand' | 'onRed'
   className?: string
 }) {
-  const field = tone === 'inverse' ? 'var(--bg-base)' : 'var(--ink)'
-  const horizon = tone === 'inverse' ? 'var(--ink)' : 'var(--bg-base)'
+  const field = tone === 'onRed' ? 'var(--brand-red-deep)' : 'var(--brand-red)'
+  const c = MARK_GRID / 2
 
   return (
     <svg
@@ -27,28 +28,31 @@ export function BrandMark({
       aria-hidden="true"
       className={`shrink-0 ${className}`}
     >
-      <rect
-        width={MARK_GRID}
-        height={MARK_GRID}
-        rx={MARK_RADIUS}
-        ry={MARK_RADIUS}
-        fill={field}
+      <circle cx={c} cy={c} r={c} fill={field} />
+      <circle
+        cx={c}
+        cy={c}
+        r={MARK_RING.r}
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth={MARK_RING.stroke}
       />
-      <path d={MARK_SUN} fill="var(--brand-red)" />
+      <path d={MARK_SUN} fill="#ffffff" />
       <rect
         x={MARK_HORIZON.x}
         y={MARK_HORIZON.y}
         width={MARK_HORIZON.width}
         height={MARK_HORIZON.height}
-        fill={horizon}
+        fill="#ffffff"
       />
     </svg>
   )
 }
 
 /**
- * The masthead wordmark. Colour is inherited so the same component reads on
- * paper and on the dark footer slab; the closing word carries the house red.
+ * The masthead wordmark. Colour is inherited so the same component reads in
+ * white on the red slab and on the dark footer; `accentLastWord` paints the
+ * closing word house red for use on paper.
  */
 export function Wordmark({
   className = '',

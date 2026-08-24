@@ -1,7 +1,8 @@
 # Alma Shriq News (ASN)
 
-A modern daily news front page built with Next.js — world, business, technology,
-sport and culture, set in clean type on white.
+A daily tabloid front page built with Next.js — world, business, technology,
+sport and culture, set flat and loud in the 2015 tradition: red masthead slab,
+hard rules, clean type on white.
 
 ## Development
 
@@ -15,10 +16,15 @@ npm run dev
 Tokens live in `src/app/globals.css` as CSS custom properties, with a matching
 Tailwind palette under the `asn` namespace in `tailwind.config.ts`.
 
-- **Ink** `#0f1419` on paper `#ffffff`, with cool grey `#f6f7f9` surfaces
-- **House red** `#c8102e` for the mark, kickers, links, section tabs and live furniture
+- **Ink** `#111111` on paper `#ffffff`, with flat grey `#f4f4f4` surfaces
+- **House red** `#c8102e` carries the masthead slab, the medallion, links,
+  kickers, section tabs and live furniture; `#9c0a22` is its deep shade
 - **Ink slabs** carry the utility rail and the footer
-- Soft radii (`4–10px`, pill chips), light hairline rules and low-contrast shadows
+- Square corners, hard hairline rules, no gradients and no soft shadows
+
+The mark is a red medallion — a white rising sun over a horizon rule inside a
+thin white ring. "Al Mashriq" is the East, the place of sunrise, so the symbol
+is the name.
 
 Typography is self-hosted from `src/fonts` and wired up in `src/app/layout.tsx`:
 

@@ -8,33 +8,34 @@
   --foreground-rgb: 15, 20, 25;
 
   /* ============================================================
-     Alma Shriq News — flat 2018 broadsheet palette.
-     Light paper, neutral hairlines, a deep news blue for links,
-     kickers and interface accents. Brand red is reserved for the
-     masthead mark and live/breaking furniture. Square corners
-     and hard rules throughout — no rounding, no soft shadows.
+     Alma Shriq News — flat 2015 tabloid palette, New York Post
+     energy. White paper, hard neutral hairlines, and one loud
+     house red carrying the masthead slab, links, kickers, tabs
+     and live furniture. Square corners and hard rules throughout
+     — no rounding, no gradients, no soft shadows.
      ============================================================ */
 
   --bg-base: #ffffff;
-  --bg-surface: #f5f5f5;
+  --bg-surface: #f4f4f4;
   --bg-surface-2: #ededed;
   --bg-secondary: #e4e4e4;
 
   --border-subtle: #ececec;
-  --border-soft: #dcdcdc;
-  --border-strong: #b3b3b3;
+  --border-soft: #d8d8d8;
+  --border-strong: #b0b0b0;
 
-  --text-primary: #121212;
-  --text-secondary: #4a4a4a;
+  --text-primary: #111111;
+  --text-secondary: #444444;
   --text-muted: #6e6e6e;
 
-  --accent: #005689;
-  --accent-hover: #003d61;
-  --accent-subtle: #eaf3f9;
-  --accent-border: #b9d5e8;
+  --accent: #c8102e;
+  --accent-hover: #9c0a22;
+  --accent-subtle: #fbecee;
+  --accent-border: #f0c3cb;
 
   --live: #c8102e;
   --brand-red: #c8102e;
+  --brand-red-deep: #9c0a22;
   --brand-green: #12805c;
 
   /* Dark surfaces: top rail and footer. */
@@ -120,13 +121,14 @@ a:hover .headline {
 
 /* ---------- masthead wordmark ---------- */
 
-/* Colour is inherited so the same wordmark works on paper and on the ink slab. */
+/* Colour is inherited so the same wordmark works on the red slab, on paper
+   and on the ink footer. Set heavy and tight, tabloid style. */
 .st-wordmark {
   font-family: var(--font-masthead);
-  font-weight: 800;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.018em;
-  line-height: 0.95;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
   font-feature-settings: 'lnum' 1;
 }
 
@@ -136,8 +138,10 @@ a:hover .headline {
 
 /* ---------- page chrome ---------- */
 
+/* The header keeps its landmark but contributes no box of its own, so the
+   sticky nav's containing block is the page and it can actually pin. */
 .st-header-slab {
-  background: var(--bg-base);
+  display: contents;
 }
 
 /* Slim dark rail above the masthead: dateline, utility links, subscribe. */
@@ -146,10 +150,17 @@ a:hover .headline {
   color: var(--on-ink);
 }
 
+/* The masthead itself: a loud, flat red slab with the medallion and the
+   white wordmark — the New York Post move. */
+.st-masthead-slab {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
 .st-nav-rail {
-  border-top: 1px solid var(--border-soft);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid var(--border-soft);
   background: var(--bg-base);
+  box-shadow: inset 0 2px 0 var(--ink);
 }
 
 .st-ticker-rail {
@@ -210,18 +221,16 @@ a:hover .headline {
 
 /* ---------- form controls ---------- */
 
+/* Lives on the red masthead slab, so it is a hard white box. */
 .st-search {
   border-radius: var(--r-pill);
-  border: 1px solid var(--border-soft);
-  background: var(--bg-surface);
-  transition: border-color 0.15s ease, background-color 0.15s ease,
-    box-shadow 0.15s ease;
+  border: 1px solid var(--brand-red-deep);
+  background: #ffffff;
+  transition: box-shadow 0.15s ease;
 }
 
 .st-search:focus-within {
-  border-color: var(--accent);
-  background: var(--bg-base);
-  box-shadow: 0 0 0 3px var(--accent-subtle);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
 .st-icon-btn {
@@ -628,8 +637,8 @@ a:hover .headline {
 .scrollbar-hide { scrollbar-width: none; }
 
 ::selection {
-  background: #cfe3f1;
-  color: #121212;
+  background: #f6d2d8;
+  color: #111111;
 }
 
 a:focus-visible,
